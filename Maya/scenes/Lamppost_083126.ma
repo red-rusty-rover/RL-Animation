@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Lamppost_083126.ma
-//Last modified: Sun, Sep 13, 2026 03:07:46 PM
+//Last modified: Sun, Sep 13, 2026 03:10:31 PM
 //Codeset: 1252
 requires maya "2027";
 requires -nodeType "displayPoints" "Type" "2.0a";
@@ -14,20 +14,20 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 26200)";
-fileInfo "UUID" "EECDF66C-4DA2-A998-E4ED-ABB8AF9706D4";
+fileInfo "UUID" "861B3AE6-4042-5C3D-0D23-36B24139DC23";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "3CCE17D3-485F-40BD-F9AC-C4B57F124CA0";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 154.68376319478759 271.33622263310639 221.03220501192601 ;
-	setAttr ".r" -type "double3" -58.538352730095141 -356.59999999965794 7.9654071909750052e-16 ;
+	setAttr ".t" -type "double3" 9.463958771816138 458.74305741236628 722.67142310418308 ;
+	setAttr ".r" -type "double3" -26.138352730095409 -371.7999999996573 4.0615239586782797e-16 ;
 	setAttr ".rp" -type "double3" 8.4376949871511897e-15 3.5527136788005009e-15 0 ;
 	setAttr ".rpt" -type "double3" -7.2214439040425693e-16 -4.1238428937539791e-17 3.4577871158257286e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8F5B81DE-45C9-89EA-9E60-50BB2D127ECE";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 331.49517093843588;
+	setAttr ".coi" 824.49821200939607;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
