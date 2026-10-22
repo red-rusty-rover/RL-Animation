@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Displacement Map.ma
-//Last modified: Wed, Oct 21, 2026 07:34:28 PM
+//Last modified: Wed, Oct 21, 2026 08:20:03 PM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -14,23 +14,23 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 26200)";
-fileInfo "UUID" "20A750D6-49E3-03F2-6793-888ABEE6C17E";
+fileInfo "UUID" "1FD3B4A0-484E-C6D9-2F66-6C9CEE14CD03";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "584B1A49-41DE-75CA-E40A-1CA8AF804332";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 77.081276484501998 210.98320434732449 1.0234844572921649 ;
-	setAttr ".r" -type "double3" -72.600000000036928 89.599999999999184 4.5558460015961374e-13 ;
-	setAttr ".rpt" -type "double3" 3.4846572442559005e-16 -2.5892122980734799e-15 5.8071094511941594e-17 ;
+	setAttr ".t" -type "double3" 131.37995635871954 57.525172890316036 44.260034396545919 ;
+	setAttr ".r" -type "double3" -23.4000000000017 91.199999999999918 7.6333312355124402e-14 ;
+	setAttr ".rpt" -type "double3" -2.4510724339665517e-14 -4.7585570391787519e-15 4.838994000327017e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "4D67E602-440A-D67D-4865-DAB07952FCC8";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 179.07493421390294;
+	setAttr ".coi" 141.53284322474732;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 1.1368683772161603e-13 90.562255411619446 -0.047679057575095385 ;
+	setAttr ".tp" -type "double3" -5.6843418860808015e-14 8.4630728055139783e-18 -52.580561847512101 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "34279C5E-4359-9028-F960-B2B24FCB7B73";
@@ -114,7 +114,7 @@ createNode mesh -n "Plane_KnitShape" -p "Plane_Knit";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_subdiv_type" 1;
-	setAttr ".ai_subdiv_iterations" 5;
+	setAttr ".ai_subdiv_iterations" 6;
 createNode transform -n "aiAreaLight1";
 	rename -uid "9F747D86-43FD-FE62-26C1-E59238188D54";
 	setAttr ".t" -type "double3" 0 128.98472173980713 -59.810747031162478 ;
@@ -146,20 +146,20 @@ createNode aiAreaLight -n "aiAreaLight2" -p "|aiAreaLight2";
 	setAttr ".ai_translator" -type "string" "quad";
 	setAttr ".aal" -type "attributeAlias" 4 "exposure" "aiExposure" "normalize" "aiNormalize" ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "34C1A0D6-42CF-3313-DCC0-6BAF2EC03957";
+	rename -uid "29186A2E-424A-123B-2D8B-D1ABCA3DCAC9";
 	setAttr -s 4 ".lnk";
 	setAttr -s 4 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "3FB157A8-4BC1-958E-2814-1399B65CDACE";
+	rename -uid "091E31B2-4D1E-04E6-C40B-2EA603B1A9AE";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "E847ED3F-49A5-111C-68B2-D5A383C36B00";
+	rename -uid "A160F4ED-49BC-DE3E-74A6-9ABBE6B36F44";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "77C55698-4F9C-B734-C62C-BE92821E0F6C";
+	rename -uid "C2F4DD72-44CD-D525-0EA7-AA929294B8DC";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "33243453-41AE-196C-4241-C4912A531363";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "C61856EA-462B-DF41-DF94-55A95A91FB31";
+	rename -uid "867A32C6-463C-2306-D02D-349EDF44B1A1";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "BE8536AE-4308-26E0-A1FB-4980947210D8";
 	setAttr ".g" yes;
@@ -183,12 +183,12 @@ createNode place2dTexture -n "place2dTexture1";
 	rename -uid "B28032C1-40B3-ED09-2BCA-B48BD4FB423D";
 createNode displacementShader -n "displacementShader1";
 	rename -uid "13C0C1CC-4E6A-E7D4-95EA-9F84D4C42BE1";
-	setAttr ".scl" 0.008999999612569809;
+	setAttr ".scl" 0.0099999997764825821;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "4D6B4C0C-4ED6-82CC-B8E9-88869563F3BE";
 	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
 	setAttr ".version" -type "string" "5.6.1.1";
-	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1    1;Background.Offset=0    0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1    1;Foreground.Offset=0    0;Foreground.Apply Color Management=1;Interactive.FPS=16";
+	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1     1;Background.Offset=0     0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1     1;Foreground.Offset=0     0;Foreground.Apply Color Management=1;Interactive.FPS=16";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "7D812A48-4FB5-8D25-DC1B-EB8BA67CD824";
 	setAttr ".ai_translator" -type "string" "gaussian";
@@ -324,41 +324,41 @@ createNode file -n "Knit_Displace_2";
 createNode place2dTexture -n "place2dTexture3";
 	rename -uid "B5AB5520-4B92-1305-EA9F-42A7255182C8";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "26E88B66-449B-6D6B-7D2B-71A7493A7F7F";
+	rename -uid "628502EC-4DBE-976B-B3A8-43A98136EE72";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" 2111.4471500358741 -3780.5897156593596 ;
-	setAttr ".tgi[0].vh" -type "double2" 4106.0774493734398 -2272.4546112821758 ;
+	setAttr ".tgi[0].vl" -type "double2" 2032.8602935399149 -3908.0970935733703 ;
+	setAttr ".tgi[0].vh" -type "double2" 3844.8214608309313 -2538.0776744021141 ;
 	setAttr -s 10 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 3191.708740234375;
-	setAttr ".tgi[0].ni[0].y" -3062.424072265625;
+	setAttr ".tgi[0].ni[0].x" 2604.113037109375;
+	setAttr ".tgi[0].ni[0].y" -3109.913330078125;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 2604.113037109375;
+	setAttr ".tgi[0].ni[1].x" 2382.6845703125;
 	setAttr ".tgi[0].ni[1].y" -3109.913330078125;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" 2881.138671875;
-	setAttr ".tgi[0].ni[2].y" -3729.62841796875;
-	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" 2886.92822265625;
-	setAttr ".tgi[0].ni[3].y" -3034.992919921875;
-	setAttr ".tgi[0].ni[3].nvs" 1971;
-	setAttr ".tgi[0].ni[4].x" 2338.7841796875;
-	setAttr ".tgi[0].ni[4].y" -2342.977783203125;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" 2382.6845703125;
-	setAttr ".tgi[0].ni[5].y" -3109.913330078125;
+	setAttr ".tgi[0].ni[2].x" 2880.244384765625;
+	setAttr ".tgi[0].ni[2].y" -2175.690185546875;
+	setAttr ".tgi[0].ni[2].nvs" 1971;
+	setAttr ".tgi[0].ni[3].x" 3142.863525390625;
+	setAttr ".tgi[0].ni[3].y" -2192.594970703125;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
+	setAttr ".tgi[0].ni[4].x" 2886.92822265625;
+	setAttr ".tgi[0].ni[4].y" -3034.992919921875;
+	setAttr ".tgi[0].ni[4].nvs" 1971;
+	setAttr ".tgi[0].ni[5].x" 2565.622314453125;
+	setAttr ".tgi[0].ni[5].y" -2318.93017578125;
 	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" 2882.305419921875;
-	setAttr ".tgi[0].ni[6].y" -2831.38134765625;
+	setAttr ".tgi[0].ni[6].x" 3191.708740234375;
+	setAttr ".tgi[0].ni[6].y" -3062.424072265625;
 	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" 2565.622314453125;
-	setAttr ".tgi[0].ni[7].y" -2318.93017578125;
+	setAttr ".tgi[0].ni[7].x" 2882.305419921875;
+	setAttr ".tgi[0].ni[7].y" -2831.38134765625;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
-	setAttr ".tgi[0].ni[8].x" 3142.863525390625;
-	setAttr ".tgi[0].ni[8].y" -2192.594970703125;
+	setAttr ".tgi[0].ni[8].x" 2881.138671875;
+	setAttr ".tgi[0].ni[8].y" -3729.62841796875;
 	setAttr ".tgi[0].ni[8].nvs" 1923;
-	setAttr ".tgi[0].ni[9].x" 2880.244384765625;
-	setAttr ".tgi[0].ni[9].y" -2175.690185546875;
-	setAttr ".tgi[0].ni[9].nvs" 1971;
+	setAttr ".tgi[0].ni[9].x" 2338.7841796875;
+	setAttr ".tgi[0].ni[9].y" -2342.977783203125;
+	setAttr ".tgi[0].ni[9].nvs" 1923;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -516,25 +516,25 @@ connectAttr "place2dTexture3.vt3" "Knit_Displace_2.vt3";
 connectAttr "place2dTexture3.vc1" "Knit_Displace_2.vc1";
 connectAttr "place2dTexture3.o" "Knit_Displace_2.uv";
 connectAttr "place2dTexture3.ofs" "Knit_Displace_2.fs";
-connectAttr "openPBRSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "Knit_Displace_2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "Knit_Displace_2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
-connectAttr "displacementShader2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr "Leather_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "Knit_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "openPBRSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
-connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "Knit_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
-connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "displacementShader1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "openPBRSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+connectAttr "displacementShader1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
-connectAttr "openPBRSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+connectAttr "displacementShader2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
 		;
-connectAttr "Leather_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
+connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
 		;
 connectAttr "openPBRSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface2SG.pa" ":renderPartition.st" -na;
