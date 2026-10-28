@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Kitchen_Old_02.ma
-//Last modified: Wed, Oct 28, 2026 10:52:29 AM
+//Last modified: Wed, Oct 28, 2026 11:05:51 AM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -13,19 +13,19 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202604221258-70da84b25e";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 26200)";
-fileInfo "UUID" "94FE9ED3-4DE8-30E9-BE55-D18D1AB144BF";
+fileInfo "UUID" "3F0A54B5-4038-0A3F-14F8-19849081E613";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "CFD4A116-408B-8154-A2C4-27977A511E3D";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 103.35269152163329 -38.161176927367677 -407.60589732806 ;
-	setAttr ".r" -type "double3" 340.19999999986982 -25.600000000000481 0 ;
+	setAttr ".t" -type "double3" 115.99356230826785 -31.011031044041349 -801.46585223026409 ;
+	setAttr ".r" -type "double3" 338.99999999976399 -29.600000000000247 0 ;
 	setAttr ".rpt" -type "double3" -2.5008999372392856e-14 2.4202358968392103e-14 1.314062141470484e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "4FB7C768-485D-D779-C459-08B83CF6FE53";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 400.31367140831213;
+	setAttr ".coi" 183.64924094554101;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -23935,7 +23935,7 @@ createNode transform -n "Seat" -p "Chair";
 	setAttr -av ".sx";
 	setAttr -av ".sy";
 	setAttr -av ".sz";
-createNode mesh -n "SeatShape" -p "Seat";
+createNode mesh -n "SeatShape" -p "|Chair|Seat";
 	rename -uid "6618CAF6-41F4-CD11-028D-84BB76195828";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -35199,6 +35199,88 @@ createNode mesh -n "Table_Dining_Leg_Shape4" -p "Table_Dining_Leg_4";
 		28 0 
 		37 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "Chair_Table_1";
+	rename -uid "0E98F8AC-44B6-1857-5731-53817BEC78E0";
+createNode transform -n "Back" -p "Chair_Table_1";
+	rename -uid "DACAE956-4C52-616A-CBB0-E28045780426";
+	setAttr ".t" -type "double3" 231.47943991885444 -52.855490310689682 -920.21131910210863 ;
+	setAttr ".r" -type "double3" 94.113025000868092 0 0 ;
+	setAttr ".s" -type "double3" 18.55018471320901 6.4719981086688998 67.840230854133097 ;
+createNode mesh -n "BackShape" -p "Back";
+	rename -uid "1ECC7EFB-48E5-BF58-F62C-5C9020CF866B";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "Seat" -p "Chair_Table_1";
+	rename -uid "50E1A95E-4F3A-3240-6677-13A715E4580C";
+	setAttr ".t" -type "double3" 231.47943991885444 -86.008318843330585 -948.99279967470363 ;
+	setAttr ".s" -type "double3" 59.711599126593754 6.4719981086688998 59.711599126593754 ;
+createNode mesh -n "SeatShape" -p "|Chair_Table_1|Seat";
+	rename -uid "AC24C4B5-4C90-A8BF-2BD1-92990BBFA52B";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCube7" -p "Chair_Table_1";
+	rename -uid "00B9F1ED-48F1-971C-02EA-D8BB43639637";
+	setAttr ".t" -type "double3" 207.89094501604853 -115.04486193518986 -926.47015167651841 ;
+	setAttr ".s" -type "double3" 5.667605927125746 54.464400549617068 5.667605927125746 ;
+createNode mesh -n "pCubeShape1" -p "pCube7";
+	rename -uid "428D7ACB-4C80-67BE-CA09-7EB28CDD0BCA";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
 createNode transform -n "Cabinet";
 	rename -uid "F038531C-4CB7-1C10-28C4-798AF6BC0A73";
 	setAttr ".rp" -type "double3" 340.92172241210938 54.837405026323253 -694.97779838261977 ;
@@ -66130,6 +66212,12 @@ createNode polyBevel3 -n "polyBevel2";
 	setAttr ".mv" yes;
 	setAttr ".mvt" 0.0001;
 	setAttr ".sa" 30;
+createNode polyCube -n "polyCube2";
+	rename -uid "5F57C4C0-4D91-2749-A6A5-AFBDDF1B2801";
+	setAttr ".cuv" 4;
+createNode polyCube -n "polyCube3";
+	rename -uid "27D74B41-4989-3AC0-838C-BC970A26C436";
+	setAttr ".cuv" 4;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -66159,7 +66247,7 @@ select -ne :openPBR_shader1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
-	setAttr -s 6 ".dsm";
+	setAttr -s 9 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -66191,16 +66279,18 @@ connectAttr ":defaultColorMgtGlobals.cme" "imagePlaneShape2.cme";
 connectAttr ":defaultColorMgtGlobals.cfe" "imagePlaneShape2.cmcf";
 connectAttr ":defaultColorMgtGlobals.cfp" "imagePlaneShape2.cmcp";
 connectAttr ":defaultColorMgtGlobals.wsn" "imagePlaneShape2.ws";
-connectAttr "pCube6_translateX.o" "Seat.tx";
-connectAttr "pCube6_translateY.o" "Seat.ty";
-connectAttr "pCube6_translateZ.o" "Seat.tz";
-connectAttr "pCube6_scaleX.o" "Seat.sx";
-connectAttr "pCube6_scaleY.o" "Seat.sy";
-connectAttr "pCube6_scaleZ.o" "Seat.sz";
-connectAttr "pCube6_rotateX.o" "Seat.rx";
-connectAttr "pCube6_rotateY.o" "Seat.ry";
-connectAttr "pCube6_rotateZ.o" "Seat.rz";
-connectAttr "pCube6_visibility.o" "Seat.v";
+connectAttr "pCube6_translateX.o" "|Chair|Seat.tx";
+connectAttr "pCube6_translateY.o" "|Chair|Seat.ty";
+connectAttr "pCube6_translateZ.o" "|Chair|Seat.tz";
+connectAttr "pCube6_scaleX.o" "|Chair|Seat.sx";
+connectAttr "pCube6_scaleY.o" "|Chair|Seat.sy";
+connectAttr "pCube6_scaleZ.o" "|Chair|Seat.sz";
+connectAttr "pCube6_rotateX.o" "|Chair|Seat.rx";
+connectAttr "pCube6_rotateY.o" "|Chair|Seat.ry";
+connectAttr "pCube6_rotateZ.o" "|Chair|Seat.rz";
+connectAttr "pCube6_visibility.o" "|Chair|Seat.v";
+connectAttr "polyCube2.out" "|Chair_Table_1|Seat|SeatShape.i";
+connectAttr "polyCube3.out" "pCubeShape1.i";
 connectAttr "transformGeometry1.og" "Cabinet_MainShape.i";
 connectAttr "polyTweakUV146.uvtk[0]" "Cabinet_MainShape.uvst[0].uvtw";
 connectAttr "transformGeometry2.og" "Cabinet_HandleShape.i";
@@ -66268,7 +66358,7 @@ connectAttr "Leg_B_LShape.iog" "openPBRSurface2SG.dsm" -na;
 connectAttr "Leg_B_RShape.iog" "openPBRSurface2SG.dsm" -na;
 connectAttr "Leg_F_LShape.iog" "openPBRSurface2SG.dsm" -na;
 connectAttr "Leg_F_RShape.iog" "openPBRSurface2SG.dsm" -na;
-connectAttr "SeatShape.iog" "openPBRSurface2SG.dsm" -na;
+connectAttr "|Chair|Seat|SeatShape.iog" "openPBRSurface2SG.dsm" -na;
 connectAttr "Armrest_L_supportShape.iog" "openPBRSurface2SG.dsm" -na;
 connectAttr "Armrest_LShape.iog" "openPBRSurface2SG.dsm" -na;
 connectAttr "Armrest_R_supportShape.iog" "openPBRSurface2SG.dsm" -na;
@@ -67707,4 +67797,7 @@ connectAttr "Wall_RShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "CeilingShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Wall_BackShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Wall_LShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|Chair_Table_1|Seat|SeatShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "BackShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of Kitchen_Old_02.ma
