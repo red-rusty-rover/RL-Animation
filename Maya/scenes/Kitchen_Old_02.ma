@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Kitchen_Old_02.ma
-//Last modified: Tue, Nov 03, 2026 05:21:41 PM
+//Last modified: Tue, Nov 03, 2026 07:13:38 PM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -14,19 +14,19 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 26200)";
-fileInfo "UUID" "8A4D361B-4D15-93EB-EA24-13A8EAC6F14F";
+fileInfo "UUID" "593292D8-4188-54BC-6750-35B591BC646B";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "CFD4A116-408B-8154-A2C4-27977A511E3D";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 125.85616203143584 107.41584171126206 -324.28140355850195 ;
-	setAttr ".r" -type "double3" 350.39999999984207 -282.80000000000859 -3.5890050210635395e-15 ;
+	setAttr ".t" -type "double3" 25.486092590328461 -7.4432613136933838 -642.15232188778327 ;
+	setAttr ".r" -type "double3" 337.79999999974393 -338.80000000005822 1.705713550011076e-15 ;
 	setAttr ".rpt" -type "double3" -1.7278643781799112e-14 2.9821116604738063e-14 1.4854144091216068e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "4FB7C768-485D-D779-C459-08B83CF6FE53";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 494.9722713916201;
+	setAttr ".coi" 177.31471296993627;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -23899,6 +23899,12 @@ createNode mesh -n "Armrest_L_supportShape" -p "Armrest_L_support";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "Seat" -p "Chair";
 	rename -uid "6CA2C7F6-475C-CB82-9CE2-42A7D7EAC205";
+	setAttr ".t" -type "double3" -67.659582353599234 -94 -873.7848250823356 ;
+	setAttr -av ".tx";
+	setAttr -av ".ty";
+	setAttr ".s" -type "double3" 63.135818436429318 9.8558931135117671 64.994632285852362 ;
+	setAttr -av ".sy";
+	setAttr -av ".sz";
 createNode mesh -n "SeatShape" -p "|Chair|Seat";
 	rename -uid "6618CAF6-41F4-CD11-028D-84BB76195828";
 	setAttr -k off ".v";
@@ -24499,6 +24505,7 @@ createNode mesh -n "SeatShape" -p "|Chair|Seat";
 		50 0 
 		53 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".dr" 1;
 createNode transform -n "Leg_F_R" -p "Chair";
 	rename -uid "5BEA8125-4E86-24D3-4A48-9F8D60AD0095";
 	setAttr ".t" -type "double3" -53.164785197006893 -120.56145332561461 -847.88268729459094 ;
@@ -74257,7 +74264,7 @@ createNode mesh -n "WindowsShape" -p "Windows";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 9 ".pt";
+	setAttr -s 6 ".pt";
 	setAttr ".pt[23]" -type "float3" 0 0 -2.8610229e-06 ;
 	setAttr ".pt[29]" -type "float3" 0 0 -2.8610229e-06 ;
 	setAttr ".pt[286]" -type "float3" 0 0 2.8610229e-06 ;
@@ -79632,9 +79639,9 @@ createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
 	setAttr ".asp" -type "string" "UsdDefaultRenderSettings,/Render/SceneRenderSettings";
 lockNode -l 1 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "CC47B0CA-4BB2-9178-D4F0-C78053DBEBC8";
-	setAttr -s 12 ".lnk";
-	setAttr -s 12 ".slnk";
+	rename -uid "3C7674F4-4CD7-DAB8-0C9C-319D909B59B3";
+	setAttr -s 15 ".lnk";
+	setAttr -s 15 ".slnk";
 createNode UsdDefaultSettings -n "UsdDefaultRenderSettings1";
 	rename -uid "1BE13FAD-4FE0-4F9B-C195-2A9567B48CA0";
 	setAttr ".srl" -type "string" "#usda 1.0\n(\n    renderSettingsPrimPath = \"/Render/SceneRenderSettings\"\n)\n\ndef Scope \"Render\"\n{\n    def RenderSettings \"SceneRenderSettings\"\n    {\n        custom string adskUsd:externalCamera = \"|persp\" (\n            displayName = \"External Camera\"\n        )\n        rel products = </Render/BeautyProduct>\n    }\n\n    def RenderVar \"color\"\n    {\n        uniform string sourceName = \"color\"\n    }\n\n    def RenderProduct \"BeautyProduct\"\n    {\n        rel orderedVars = </Render/color>\n        token productName = \"./default.png\"\n    }\n}\n\n";
@@ -79642,16 +79649,16 @@ createNode UsdDefaultSettings -n "UsdDefaultRenderSettings1";
 	setAttr ".asp" -type "string" "UsdDefaultRenderSettings,/Render/SceneRenderSettings";
 lockNode -l 1 ;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "576B5BF1-4F19-88FA-7B4D-7189012F1A2B";
+	rename -uid "764E76C8-4E67-B008-0F4A-098A944C2EDA";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "94F2153E-4AE7-7006-2BFC-33A204415324";
+	rename -uid "10E8B169-4EFA-1502-4148-BD957D2A6D18";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "14B70688-4965-D759-1E17-93BC5BA7A907";
+	rename -uid "A8CDF7E9-4C33-342D-D5F4-5EA380DB9458";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "10A6E1AD-488B-C663-3006-209DFE949E58";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "4EB2A7F5-4554-EAF5-52BE-929C4D5641FA";
+	rename -uid "CB5F6D44-4B4F-B0F4-BAF1-89B85044966A";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "FFF674E8-48A7-DF25-D2B9-9BB87E6AD2EE";
 	setAttr ".g" yes;
@@ -79697,8 +79704,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"|persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n"
 		+ "                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n"
 		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n"
-		+ "                -clipGhosts 1\n                -bluePencil 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                -pluginObjects \"mayaUsdProxyShapeBaseDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polySelectionConstraintPanel\" (localizedPanelLabel(\"Polygon Selection Constraints\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Polygon Selection Constraints\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "                -clipGhosts 1\n                -bluePencil 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                -pluginObjects \"mayaUsdProxyShapeBaseDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n"
+		+ "\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"|persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1317\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    -pluginObjects \\\"mayaUsdProxyShapeBaseDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"|persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1317\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    -pluginObjects \\\"mayaUsdProxyShapeBaseDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
@@ -84909,299 +84916,551 @@ createNode shadingEngine -n "openPBRSurface10SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo10";
 	rename -uid "AE18020A-4A76-0B11-E552-31BF65BC882B";
+createNode transformGeometry -n "transformGeometry4";
+	rename -uid "5FB3DBB5-4249-731A-8341-02AF8E8E07D7";
+createNode file -n "Base_color";
+	rename -uid "78736346-4004-ACC9-4382-D7AE9B46DCCE";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture34";
+	rename -uid "94460703-4D07-90F2-4938-ABB99D3F2C0B";
+createNode file -n "Windows_008_openPBRSurface10SG_Metallic_1";
+	rename -uid "EDD0CB3D-4C37-2ED6-3920-798BD194E838";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture35";
+	rename -uid "525DB8AC-4BA4-E83C-BB3D-9F99736D4E08";
+createNode file -n "Windows_008_openPBRSurface10SG_Roughness_1";
+	rename -uid "79147676-48E0-8E0B-3574-53919D89F4E9";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture36";
+	rename -uid "BB1CD14E-4E7C-BE75-FD3E-CB89A717F098";
+createNode file -n "Windows_008_openPBRSurface10SG_Normal_1";
+	rename -uid "E6B8FC28-4418-BF9A-DEC9-B4ABA1A6968B";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Normal.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture37";
+	rename -uid "F5EA24E9-4F1C-94D5-ECCB-ADB55739975F";
+createNode aiNormalMap -n "aiNormalMap9";
+	rename -uid "1C483A99-46EE-288C-EAAD-ABA39C07BB5E";
+createNode displacementShader -n "displacementShader2";
+	rename -uid "260D2A63-4D25-F3B9-FDDF-CEAEE7B75B17";
+createNode file -n "Windows_008_openPBRSurface10SG_Height_1";
+	rename -uid "9FBF87B9-4ACF-FC1A-8C08-3CA9F21A3871";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Height.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture38";
+	rename -uid "F4736B9B-4B9B-A139-328C-F79C12913861";
+createNode place2dTexture -n "pasted__place2dTexture34";
+	rename -uid "1AE0694C-4442-6273-7BE6-BFB4A0728047";
+createNode place2dTexture -n "pasted__place2dTexture35";
+	rename -uid "4924B51F-46C4-CA6F-1524-3880D87E91E3";
+createNode place2dTexture -n "pasted__place2dTexture36";
+	rename -uid "489D5FF8-4139-FB8C-40BD-9B87AD28F9B2";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Metallic_1";
+	rename -uid "E7C316A9-46B7-828C-90D4-5EB91CB9D668";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Roughness_1";
+	rename -uid "2D4A7D8E-4610-5969-0ABB-F7A4D5258BA1";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode file -n "pasted__Base_color";
+	rename -uid "5C869A05-453D-8702-A108-92826E2D35E8";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Normal_1";
+	rename -uid "EECEACF7-43EF-E7A5-6E1D-5EAA2597607D";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Normal.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture37";
+	rename -uid "E9AFF9CC-4C1E-524C-090A-92BA46936EFA";
+createNode aiNormalMap -n "pasted__aiNormalMap9";
+	rename -uid "F220F15B-4DC8-8642-3F90-028F39A02B1C";
+createNode openPBRSurface -n "pasted__Windows_Mat";
+	rename -uid "FBF4DD31-48C1-8933-9BB4-8D88D89EE88E";
+createNode shadingEngine -n "pasted__openPBRSurface10SG";
+	rename -uid "D07EFEEC-4DC0-C7B0-E0FD-A696883CA9EA";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "pasted__materialInfo10";
+	rename -uid "98BF1B5C-49A9-D3A9-3E12-F887E6B93F08";
+createNode displacementShader -n "pasted__displacementShader2";
+	rename -uid "D639C1B9-4A8F-A676-ABC7-B6A9B443085E";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Height_1";
+	rename -uid "8866C657-4352-6C94-6B9F-4D85B3EB0136";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Height.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture38";
+	rename -uid "98F17457-4617-9447-6BA7-E2B449EDD179";
+createNode place2dTexture -n "pasted__place2dTexture39";
+	rename -uid "C2C41C49-424D-7FDD-5A1E-99AA4E61B132";
+createNode place2dTexture -n "pasted__place2dTexture40";
+	rename -uid "7457AE60-496D-0332-FB41-C1BBC6A9DE9C";
+createNode place2dTexture -n "pasted__place2dTexture41";
+	rename -uid "A9D5F0C7-4F25-EA3B-E4EB-C6957DEE6035";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Metallic_2";
+	rename -uid "E9F04697-4518-1CB0-277F-898D1CC8802D";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Roughness_2";
+	rename -uid "5350C289-42A9-3980-3D1F-15A3CC42D3D5";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode file -n "pasted__Base_color1";
+	rename -uid "F72A215A-4C68-5CE0-4662-CDA923298EE9";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Normal_2";
+	rename -uid "E684473B-4447-C4E0-FD9A-C4B35C11EE09";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Normal.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture42";
+	rename -uid "FA8646BC-4DD3-E314-18D0-6D99D87F37C7";
+createNode aiNormalMap -n "pasted__aiNormalMap10";
+	rename -uid "F5D6DC43-49BF-7A13-FA44-2FBA08E7B0B3";
+createNode openPBRSurface -n "pasted__Windows_Mat1";
+	rename -uid "734F8F5D-4781-FE55-227B-D88769441816";
+createNode shadingEngine -n "pasted__openPBRSurface10SG1";
+	rename -uid "DF14D173-445D-381B-E545-FDB1B9C9BFF0";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "pasted__materialInfo11";
+	rename -uid "D38FB8A8-4FD8-203F-99A8-9EBEB4820AFA";
+createNode displacementShader -n "pasted__displacementShader3";
+	rename -uid "687632B2-4629-A420-F85F-F6AD1578D354";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Height_2";
+	rename -uid "0013EA61-4FF6-C3FE-BB7C-828999B8702C";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Height.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture43";
+	rename -uid "9E8637DF-49F5-002F-B73F-5A8D40C6193F";
+createNode openPBRSurface -n "pasted__Windows_Mat2";
+	rename -uid "074E962C-4B12-E806-D3CE-69B31E2D7821";
+createNode file -n "pasted__Base_color2";
+	rename -uid "70BF29A2-43B2-FC06-CEBF-95BC4F9D5F32";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture44";
+	rename -uid "C9D22B26-4A9D-4121-29D0-DDB600B8E92F";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Metallic_3";
+	rename -uid "A6772EBB-4AFA-FB02-72B5-E58D5C806E13";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture45";
+	rename -uid "1709E1E9-46FB-C571-2DCB-07B54E8EB7F9";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Roughness_3";
+	rename -uid "3E732E2A-4AF6-31F8-C394-9D9EC26633B9";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture46";
+	rename -uid "8FB748CB-4F34-18DF-85A8-A7B7A42C17DC";
+createNode aiNormalMap -n "pasted__aiNormalMap11";
+	rename -uid "1E2604DF-4E06-AFA8-B9EA-C0989239631A";
+createNode file -n "pasted__Windows_008_openPBRSurface10SG_Normal_3";
+	rename -uid "7DA563AA-4D92-3AA9-AAD6-C2BA70FE9DC1";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Window Tex/Windows_008_openPBRSurface10SG_Normal.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "pasted__place2dTexture47";
+	rename -uid "01588846-4C33-9C6D-062D-B6BD2D554DF2";
+createNode file -n "Chair_Table_001_initialShadingGroup_BaseColor_1";
+	rename -uid "3D032DAE-43B4-5ECC-B13F-34A9560159DC";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Chair_Table Tex/Chair_Table_001_initialShadingGroup_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture39";
+	rename -uid "72B2E432-496C-C3A3-D897-6A87D82388D5";
+createNode file -n "Chair_Table_001_initialShadingGroup_Metallic_1";
+	rename -uid "7FB4ACD9-4F69-F031-2BCF-6CA21BBC0430";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Chair_Table Tex/Chair_Table_001_initialShadingGroup_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture40";
+	rename -uid "88B53C4A-4735-3FD5-3A1C-A7B8825424DA";
+createNode file -n "Chair_Table_001_initialShadingGroup_Roughness_1";
+	rename -uid "5FE20540-41DE-3480-DD74-E2B51A5293BB";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Chair_Table Tex/Chair_Table_001_initialShadingGroup_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture41";
+	rename -uid "BCCFE81C-43CD-3298-D287-31A54678302C";
+createNode file -n "Chair_Table_001_initialShadingGroup_Normal_1";
+	rename -uid "9797C407-4A3C-F9BA-11C0-599E1327C6C0";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Chair_Table Tex/Chair_Table_001_initialShadingGroup_Normal.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture42";
+	rename -uid "AB66AFE2-4154-8911-5448-3D85B500E710";
+createNode aiNormalMap -n "aiNormalMap10";
+	rename -uid "E7EB0371-4524-08CE-BA25-23891EECF672";
+createNode file -n "Chair_Table_001_initialShadingGroup_Height_1";
+	rename -uid "94A4984A-412E-FE38-E62C-53AE782CFBE4";
+	setAttr ".ftn" -type "string" "C:/Users/11079462/Documents/RL 26-27/RL-Animation/Textures/Chair_Table Tex/Chair_Table_001_initialShadingGroup_Height.png";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture43";
+	rename -uid "32F49EC9-4123-885B-ED5E-56AAB46B806D";
+createNode displacementShader -n "displacementShader3";
+	rename -uid "878520F6-499D-FFEA-F07B-27AE538A3268";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "F31D3BD4-466A-6006-5962-57910138F075";
+	rename -uid "2B62A497-4BE0-1539-AEA9-BC945CEC785A";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -1038.9571729878651 -6477.5192871884547 ;
-	setAttr ".tgi[0].vh" -type "double2" 822.82421971719668 -5227.4022848924906 ;
-	setAttr -s 95 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 862.03466796875;
-	setAttr ".tgi[0].ni[0].y" -4573.240234375;
+	setAttr ".tgi[0].vl" -type "double2" -2313.2087796838232 -7440.1781873739628 ;
+	setAttr ".tgi[0].vh" -type "double2" 2603.9474444557413 -4138.4905548581883 ;
+	setAttr -s 119 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -856.26171875;
+	setAttr ".tgi[0].ni[0].y" -6349.85693359375;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" -156.313720703125;
-	setAttr ".tgi[0].ni[1].y" -2277.807373046875;
-	setAttr ".tgi[0].ni[1].nvs" 1971;
-	setAttr ".tgi[0].ni[2].x" -377.19674682617188;
-	setAttr ".tgi[0].ni[2].y" -4076.96630859375;
+	setAttr ".tgi[0].ni[1].x" -634.8331298828125;
+	setAttr ".tgi[0].ni[1].y" -6349.85693359375;
+	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" -728.96746826171875;
+	setAttr ".tgi[0].ni[2].y" -5134.1279296875;
 	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" -761.52178955078125;
-	setAttr ".tgi[0].ni[3].y" -454.8837890625;
+	setAttr ".tgi[0].ni[3].x" -507.53887939453125;
+	setAttr ".tgi[0].ni[3].y" -5134.1279296875;
 	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" -617.3582763671875;
-	setAttr ".tgi[0].ni[4].y" -3377.012939453125;
+	setAttr ".tgi[0].ni[4].x" -739.28521728515625;
+	setAttr ".tgi[0].ni[4].y" -4980.83544921875;
 	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" -560.27423095703125;
-	setAttr ".tgi[0].ni[5].y" -1660.3994140625;
+	setAttr ".tgi[0].ni[5].x" -716.36181640625;
+	setAttr ".tgi[0].ni[5].y" -5913.03125;
 	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" -512.86834716796875;
-	setAttr ".tgi[0].ni[6].y" -3588.706787109375;
+	setAttr ".tgi[0].ni[6].x" -494.93325805664062;
+	setAttr ".tgi[0].ni[6].y" -5913.03125;
 	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" -821.14569091796875;
-	setAttr ".tgi[0].ni[7].y" -4050.0908203125;
+	setAttr ".tgi[0].ni[7].x" -549.4923095703125;
+	setAttr ".tgi[0].ni[7].y" -4413.83642578125;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
 	setAttr ".tgi[0].ni[8].x" -174.09341430664062;
 	setAttr ".tgi[0].ni[8].y" -246.4764404296875;
 	setAttr ".tgi[0].ni[8].nvs" 1971;
-	setAttr ".tgi[0].ni[9].x" -730.22589111328125;
-	setAttr ".tgi[0].ni[9].y" -3910.318603515625;
+	setAttr ".tgi[0].ni[9].x" -552.22174072265625;
+	setAttr ".tgi[0].ni[9].y" -2942.76904296875;
 	setAttr ".tgi[0].ni[9].nvs" 1923;
-	setAttr ".tgi[0].ni[10].x" -158.69467163085938;
-	setAttr ".tgi[0].ni[10].y" -1625.426513671875;
-	setAttr ".tgi[0].ni[10].nvs" 1971;
-	setAttr ".tgi[0].ni[11].x" 1333.46533203125;
-	setAttr ".tgi[0].ni[11].y" -4299.58154296875;
-	setAttr ".tgi[0].ni[11].nvs" 1971;
-	setAttr ".tgi[0].ni[12].x" -734.29693603515625;
-	setAttr ".tgi[0].ni[12].y" -2427.1044921875;
+	setAttr ".tgi[0].ni[10].x" -133.19131469726562;
+	setAttr ".tgi[0].ni[10].y" -6619.80029296875;
+	setAttr ".tgi[0].ni[10].nvs" 1923;
+	setAttr ".tgi[0].ni[11].x" -499.82501220703125;
+	setAttr ".tgi[0].ni[11].y" -6194.0966796875;
+	setAttr ".tgi[0].ni[11].nvs" 1923;
+	setAttr ".tgi[0].ni[12].x" -721.25360107421875;
+	setAttr ".tgi[0].ni[12].y" -6194.0966796875;
 	setAttr ".tgi[0].ni[12].nvs" 1923;
-	setAttr ".tgi[0].ni[13].x" 1072.481201171875;
-	setAttr ".tgi[0].ni[13].y" -4749.89501953125;
+	setAttr ".tgi[0].ni[13].x" -410.1776123046875;
+	setAttr ".tgi[0].ni[13].y" -6414.4765625;
 	setAttr ".tgi[0].ni[13].nvs" 1923;
-	setAttr ".tgi[0].ni[14].x" -633.6424560546875;
-	setAttr ".tgi[0].ni[14].y" -2720.218994140625;
+	setAttr ".tgi[0].ni[14].x" -383.9818115234375;
+	setAttr ".tgi[0].ni[14].y" -4755.47216796875;
 	setAttr ".tgi[0].ni[14].nvs" 1923;
-	setAttr ".tgi[0].ni[15].x" -554.93572998046875;
-	setAttr ".tgi[0].ni[15].y" -1944.0081787109375;
+	setAttr ".tgi[0].ni[15].x" -512.86834716796875;
+	setAttr ".tgi[0].ni[15].y" -2427.1044921875;
 	setAttr ".tgi[0].ni[15].nvs" 1923;
-	setAttr ".tgi[0].ni[16].x" 1056.441162109375;
-	setAttr ".tgi[0].ni[16].y" -4925.83984375;
+	setAttr ".tgi[0].ni[16].x" -735.40728759765625;
+	setAttr ".tgi[0].ni[16].y" -612.8140869140625;
 	setAttr ".tgi[0].ni[16].nvs" 1923;
-	setAttr ".tgi[0].ni[17].x" -770.9208984375;
-	setAttr ".tgi[0].ni[17].y" -4413.83642578125;
+	setAttr ".tgi[0].ni[17].x" -425.76446533203125;
+	setAttr ".tgi[0].ni[17].y" -773.2314453125;
 	setAttr ".tgi[0].ni[17].nvs" 1923;
-	setAttr ".tgi[0].ni[18].x" -607.84381103515625;
-	setAttr ".tgi[0].ni[18].y" -4731.376953125;
+	setAttr ".tgi[0].ni[18].x" 167.47361755371094;
+	setAttr ".tgi[0].ni[18].y" -5939.435546875;
 	setAttr ".tgi[0].ni[18].nvs" 1923;
-	setAttr ".tgi[0].ni[19].x" -776.36431884765625;
-	setAttr ".tgi[0].ni[19].y" -1944.0081787109375;
+	setAttr ".tgi[0].ni[19].x" -508.79733276367188;
+	setAttr ".tgi[0].ni[19].y" -3910.318603515625;
 	setAttr ".tgi[0].ni[19].nvs" 1923;
-	setAttr ".tgi[0].ni[20].x" -503.36929321289062;
-	setAttr ".tgi[0].ni[20].y" -3742.049072265625;
+	setAttr ".tgi[0].ni[20].x" -457.42721557617188;
+	setAttr ".tgi[0].ni[20].y" -1171.27587890625;
 	setAttr ".tgi[0].ni[20].nvs" 1923;
-	setAttr ".tgi[0].ni[21].x" -161.55181884765625;
-	setAttr ".tgi[0].ni[21].y" -970.66461181640625;
-	setAttr ".tgi[0].ni[21].nvs" 1971;
-	setAttr ".tgi[0].ni[22].x" 104.43268585205078;
-	setAttr ".tgi[0].ni[22].y" -5649.31689453125;
+	setAttr ".tgi[0].ni[21].x" -643.84295654296875;
+	setAttr ".tgi[0].ni[21].y" -1468.48583984375;
+	setAttr ".tgi[0].ni[21].nvs" 1923;
+	setAttr ".tgi[0].ni[22].x" -411.54266357421875;
+	setAttr ".tgi[0].ni[22].y" -1489.5894775390625;
 	setAttr ".tgi[0].ni[22].nvs" 1923;
-	setAttr ".tgi[0].ni[23].x" 97.735633850097656;
-	setAttr ".tgi[0].ni[23].y" -4968.44970703125;
+	setAttr ".tgi[0].ni[23].x" -455.6685791015625;
+	setAttr ".tgi[0].ni[23].y" -1000.6878662109375;
 	setAttr ".tgi[0].ni[23].nvs" 1923;
-	setAttr ".tgi[0].ni[24].x" -125.74629974365234;
-	setAttr ".tgi[0].ni[24].y" -4966.21728515625;
-	setAttr ".tgi[0].ni[24].nvs" 1971;
-	setAttr ".tgi[0].ni[25].x" -121.28160095214844;
-	setAttr ".tgi[0].ni[25].y" -5649.31689453125;
-	setAttr ".tgi[0].ni[25].nvs" 1971;
-	setAttr ".tgi[0].ni[26].x" -508.79733276367188;
-	setAttr ".tgi[0].ni[26].y" -3910.318603515625;
+	setAttr ".tgi[0].ni[24].x" -829.27239990234375;
+	setAttr ".tgi[0].ni[24].y" -4731.376953125;
+	setAttr ".tgi[0].ni[24].nvs" 1923;
+	setAttr ".tgi[0].ni[25].x" -550.84930419921875;
+	setAttr ".tgi[0].ni[25].y" -4561.75048828125;
+	setAttr ".tgi[0].ni[25].nvs" 1923;
+	setAttr ".tgi[0].ni[26].x" -852.35699462890625;
+	setAttr ".tgi[0].ni[26].y" -2083.7802734375;
 	setAttr ".tgi[0].ni[26].nvs" 1923;
-	setAttr ".tgi[0].ni[27].x" -677.09716796875;
-	setAttr ".tgi[0].ni[27].y" -1000.6878662109375;
+	setAttr ".tgi[0].ni[27].x" -770.9208984375;
+	setAttr ".tgi[0].ni[27].y" -4413.83642578125;
 	setAttr ".tgi[0].ni[27].nvs" 1923;
-	setAttr ".tgi[0].ni[28].x" 1329.02685546875;
-	setAttr ".tgi[0].ni[28].y" -4949.2138671875;
+	setAttr ".tgi[0].ni[28].x" 69.400558471679688;
+	setAttr ".tgi[0].ni[28].y" -2277.807373046875;
 	setAttr ".tgi[0].ni[28].nvs" 1923;
-	setAttr ".tgi[0].ni[29].x" 1085.153564453125;
-	setAttr ".tgi[0].ni[29].y" -4423.63671875;
+	setAttr ".tgi[0].ni[29].x" -395.95523071289062;
+	setAttr ".tgi[0].ni[29].y" -2746.817138671875;
 	setAttr ".tgi[0].ni[29].nvs" 1923;
 	setAttr ".tgi[0].ni[30].x" -512.73516845703125;
 	setAttr ".tgi[0].ni[30].y" -458.61444091796875;
 	setAttr ".tgi[0].ni[30].nvs" 1923;
-	setAttr ".tgi[0].ni[31].x" 89.069473266601562;
-	setAttr ".tgi[0].ni[31].y" -4271.75390625;
+	setAttr ".tgi[0].ni[31].x" 59.876750946044922;
+	setAttr ".tgi[0].ni[31].y" -970.66461181640625;
 	setAttr ".tgi[0].ni[31].nvs" 1923;
-	setAttr ".tgi[0].ni[32].x" 1622.496337890625;
-	setAttr ".tgi[0].ni[32].y" -4315.61572265625;
+	setAttr ".tgi[0].ni[32].x" 143.53338623046875;
+	setAttr ".tgi[0].ni[32].y" -4961.03662109375;
 	setAttr ".tgi[0].ni[32].nvs" 1923;
-	setAttr ".tgi[0].ni[33].x" -724.7978515625;
-	setAttr ".tgi[0].ni[33].y" -3742.049072265625;
+	setAttr ".tgi[0].ni[33].x" -513.978759765625;
+	setAttr ".tgi[0].ni[33].y" -612.8140869140625;
 	setAttr ".tgi[0].ni[33].nvs" 1923;
-	setAttr ".tgi[0].ni[34].x" -754.652099609375;
-	setAttr ".tgi[0].ni[34].y" -2279.190185546875;
+	setAttr ".tgi[0].ni[34].x" -573.93389892578125;
+	setAttr ".tgi[0].ni[34].y" -3210.100341796875;
 	setAttr ".tgi[0].ni[34].nvs" 1923;
-	setAttr ".tgi[0].ni[35].x" -743.7960205078125;
-	setAttr ".tgi[0].ni[35].y" -2569.5908203125;
+	setAttr ".tgi[0].ni[35].x" -582.07598876953125;
+	setAttr ".tgi[0].ni[35].y" -3077.11328125;
 	setAttr ".tgi[0].ni[35].nvs" 1923;
-	setAttr ".tgi[0].ni[36].x" 47.335155487060547;
-	setAttr ".tgi[0].ni[36].y" -246.4764404296875;
+	setAttr ".tgi[0].ni[36].x" 862.03466796875;
+	setAttr ".tgi[0].ni[36].y" -4573.240234375;
 	setAttr ".tgi[0].ni[36].nvs" 1923;
 	setAttr ".tgi[0].ni[37].x" -689.4075927734375;
 	setAttr ".tgi[0].ni[37].y" -1153.689453125;
 	setAttr ".tgi[0].ni[37].nvs" 1923;
-	setAttr ".tgi[0].ni[38].x" 835.62939453125;
-	setAttr ".tgi[0].ni[38].y" -4740.7373046875;
+	setAttr ".tgi[0].ni[38].x" 1622.496337890625;
+	setAttr ".tgi[0].ni[38].y" -4315.61572265625;
 	setAttr ".tgi[0].ni[38].nvs" 1923;
-	setAttr ".tgi[0].ni[39].x" 614.200927734375;
-	setAttr ".tgi[0].ni[39].y" -4740.7373046875;
+	setAttr ".tgi[0].ni[39].x" 47.335155487060547;
+	setAttr ".tgi[0].ni[39].y" -246.4764404296875;
 	setAttr ".tgi[0].ni[39].nvs" 1923;
-	setAttr ".tgi[0].ni[40].x" 860.13916015625;
-	setAttr ".tgi[0].ni[40].y" -4426.02734375;
+	setAttr ".tgi[0].ni[40].x" 81.718490600585938;
+	setAttr ".tgi[0].ni[40].y" -3606.4892578125;
 	setAttr ".tgi[0].ni[40].nvs" 1923;
-	setAttr ".tgi[0].ni[41].x" -803.50457763671875;
-	setAttr ".tgi[0].ni[41].y" -3077.11328125;
+	setAttr ".tgi[0].ni[41].x" -821.14569091796875;
+	setAttr ".tgi[0].ni[41].y" -4050.0908203125;
 	setAttr ".tgi[0].ni[41].nvs" 1923;
-	setAttr ".tgi[0].ni[42].x" 59.876750946044922;
-	setAttr ".tgi[0].ni[42].y" -970.66461181640625;
-	setAttr ".tgi[0].ni[42].nvs" 1923;
-	setAttr ".tgi[0].ni[43].x" -550.84930419921875;
-	setAttr ".tgi[0].ni[43].y" -4561.75048828125;
+	setAttr ".tgi[0].ni[42].x" -156.313720703125;
+	setAttr ".tgi[0].ni[42].y" -2277.807373046875;
+	setAttr ".tgi[0].ni[42].nvs" 1971;
+	setAttr ".tgi[0].ni[43].x" -554.93572998046875;
+	setAttr ".tgi[0].ni[43].y" -1944.0081787109375;
 	setAttr ".tgi[0].ni[43].nvs" 1923;
-	setAttr ".tgi[0].ni[44].x" -773.6502685546875;
-	setAttr ".tgi[0].ni[44].y" -2942.76904296875;
+	setAttr ".tgi[0].ni[44].x" -677.09716796875;
+	setAttr ".tgi[0].ni[44].y" -1000.6878662109375;
 	setAttr ".tgi[0].ni[44].nvs" 1923;
-	setAttr ".tgi[0].ni[45].x" -630.92840576171875;
-	setAttr ".tgi[0].ni[45].y" -2083.7802734375;
-	setAttr ".tgi[0].ni[45].nvs" 1923;
-	setAttr ".tgi[0].ni[46].x" -549.4923095703125;
-	setAttr ".tgi[0].ni[46].y" -4413.83642578125;
+	setAttr ".tgi[0].ni[45].x" -112.43779754638672;
+	setAttr ".tgi[0].ni[45].y" -5935.2666015625;
+	setAttr ".tgi[0].ni[45].nvs" 1971;
+	setAttr ".tgi[0].ni[46].x" -734.29693603515625;
+	setAttr ".tgi[0].ni[46].y" -3588.706787109375;
 	setAttr ".tgi[0].ni[46].nvs" 1923;
-	setAttr ".tgi[0].ni[47].x" -865.271484375;
-	setAttr ".tgi[0].ni[47].y" -1468.48583984375;
+	setAttr ".tgi[0].ni[47].x" -673.152587890625;
+	setAttr ".tgi[0].ni[47].y" -765.77020263671875;
 	setAttr ".tgi[0].ni[47].nvs" 1923;
-	setAttr ".tgi[0].ni[48].x" -735.40728759765625;
-	setAttr ".tgi[0].ni[48].y" -612.8140869140625;
+	setAttr ".tgi[0].ni[48].x" -424.45248413085938;
+	setAttr ".tgi[0].ni[48].y" -2111.116943359375;
 	setAttr ".tgi[0].ni[48].nvs" 1923;
-	setAttr ".tgi[0].ni[49].x" -424.45248413085938;
-	setAttr ".tgi[0].ni[49].y" -2111.116943359375;
+	setAttr ".tgi[0].ni[49].x" -730.22589111328125;
+	setAttr ".tgi[0].ni[49].y" -3910.318603515625;
 	setAttr ".tgi[0].ni[49].nvs" 1923;
-	setAttr ".tgi[0].ni[50].x" -533.22357177734375;
-	setAttr ".tgi[0].ni[50].y" -2279.190185546875;
+	setAttr ".tgi[0].ni[50].x" -503.36929321289062;
+	setAttr ".tgi[0].ni[50].y" -3742.049072265625;
 	setAttr ".tgi[0].ni[50].nvs" 1923;
-	setAttr ".tgi[0].ni[51].x" -772.27789306640625;
-	setAttr ".tgi[0].ni[51].y" -4561.75048828125;
+	setAttr ".tgi[0].ni[51].x" 614.200927734375;
+	setAttr ".tgi[0].ni[51].y" -4740.7373046875;
 	setAttr ".tgi[0].ni[51].nvs" 1923;
-	setAttr ".tgi[0].ni[52].x" -522.367431640625;
-	setAttr ".tgi[0].ni[52].y" -2569.5908203125;
+	setAttr ".tgi[0].ni[52].x" 89.069473266601562;
+	setAttr ".tgi[0].ni[52].y" -4271.75390625;
 	setAttr ".tgi[0].ni[52].nvs" 1923;
-	setAttr ".tgi[0].ni[53].x" -455.6685791015625;
-	setAttr ".tgi[0].ni[53].y" -1000.6878662109375;
+	setAttr ".tgi[0].ni[53].x" -561.7208251953125;
+	setAttr ".tgi[0].ni[53].y" -1804.23583984375;
 	setAttr ".tgi[0].ni[53].nvs" 1923;
-	setAttr ".tgi[0].ni[54].x" -561.7208251953125;
-	setAttr ".tgi[0].ni[54].y" -1804.23583984375;
-	setAttr ".tgi[0].ni[54].nvs" 1923;
-	setAttr ".tgi[0].ni[55].x" -573.93389892578125;
-	setAttr ".tgi[0].ni[55].y" -3210.100341796875;
+	setAttr ".tgi[0].ni[54].x" -136.64480590820312;
+	setAttr ".tgi[0].ni[54].y" -4271.75390625;
+	setAttr ".tgi[0].ni[54].nvs" 1971;
+	setAttr ".tgi[0].ni[55].x" -803.50457763671875;
+	setAttr ".tgi[0].ni[55].y" -3077.11328125;
 	setAttr ".tgi[0].ni[55].nvs" 1923;
-	setAttr ".tgi[0].ni[56].x" -770.9208984375;
-	setAttr ".tgi[0].ni[56].y" -4263.2080078125;
+	setAttr ".tgi[0].ni[56].x" -684.1317138671875;
+	setAttr ".tgi[0].ni[56].y" -1319.0015869140625;
 	setAttr ".tgi[0].ni[56].nvs" 1923;
-	setAttr ".tgi[0].ni[57].x" -395.95523071289062;
-	setAttr ".tgi[0].ni[57].y" -2746.817138671875;
+	setAttr ".tgi[0].ni[57].x" 1072.481201171875;
+	setAttr ".tgi[0].ni[57].y" -4749.89501953125;
 	setAttr ".tgi[0].ni[57].nvs" 1923;
-	setAttr ".tgi[0].ni[58].x" 69.400558471679688;
-	setAttr ".tgi[0].ni[58].y" -2277.807373046875;
-	setAttr ".tgi[0].ni[58].nvs" 1923;
-	setAttr ".tgi[0].ni[59].x" -852.35699462890625;
-	setAttr ".tgi[0].ni[59].y" -2083.7802734375;
+	setAttr ".tgi[0].ni[58].x" -143.99580383300781;
+	setAttr ".tgi[0].ni[58].y" -3606.4892578125;
+	setAttr ".tgi[0].ni[58].nvs" 1971;
+	setAttr ".tgi[0].ni[59].x" -445.02041625976562;
+	setAttr ".tgi[0].ni[59].y" -6588.2978515625;
 	setAttr ".tgi[0].ni[59].nvs" 1923;
-	setAttr ".tgi[0].ni[60].x" -582.07598876953125;
-	setAttr ".tgi[0].ni[60].y" -3077.11328125;
+	setAttr ".tgi[0].ni[60].x" -666.448974609375;
+	setAttr ".tgi[0].ni[60].y" -6588.2978515625;
 	setAttr ".tgi[0].ni[60].nvs" 1923;
-	setAttr ".tgi[0].ni[61].x" -383.9818115234375;
-	setAttr ".tgi[0].ni[61].y" -4755.47216796875;
+	setAttr ".tgi[0].ni[61].x" -808.56170654296875;
+	setAttr ".tgi[0].ni[61].y" -5442.18701171875;
 	setAttr ".tgi[0].ni[61].nvs" 1923;
-	setAttr ".tgi[0].ni[62].x" -425.76446533203125;
-	setAttr ".tgi[0].ni[62].y" -773.2314453125;
+	setAttr ".tgi[0].ni[62].x" -579.7633056640625;
+	setAttr ".tgi[0].ni[62].y" -5443.6611328125;
 	setAttr ".tgi[0].ni[62].nvs" 1923;
-	setAttr ".tgi[0].ni[63].x" -838.786865234375;
-	setAttr ".tgi[0].ni[63].y" -3377.012939453125;
+	setAttr ".tgi[0].ni[63].x" -630.92840576171875;
+	setAttr ".tgi[0].ni[63].y" -2083.7802734375;
 	setAttr ".tgi[0].ni[63].nvs" 1923;
-	setAttr ".tgi[0].ni[64].x" -513.978759765625;
-	setAttr ".tgi[0].ni[64].y" -612.8140869140625;
+	setAttr ".tgi[0].ni[64].x" -772.27789306640625;
+	setAttr ".tgi[0].ni[64].y" -4561.75048828125;
 	setAttr ".tgi[0].ni[64].nvs" 1923;
-	setAttr ".tgi[0].ni[65].x" -736.65087890625;
-	setAttr ".tgi[0].ni[65].y" -294.4664306640625;
+	setAttr ".tgi[0].ni[65].x" -522.367431640625;
+	setAttr ".tgi[0].ni[65].y" -2569.5908203125;
 	setAttr ".tgi[0].ni[65].nvs" 1923;
-	setAttr ".tgi[0].ni[66].x" -390.19793701171875;
-	setAttr ".tgi[0].ni[66].y" -3403.151123046875;
+	setAttr ".tgi[0].ni[66].x" -838.786865234375;
+	setAttr ".tgi[0].ni[66].y" -3377.012939453125;
 	setAttr ".tgi[0].ni[66].nvs" 1923;
-	setAttr ".tgi[0].ni[67].x" -795.36248779296875;
-	setAttr ".tgi[0].ni[67].y" -3210.100341796875;
+	setAttr ".tgi[0].ni[67].x" -773.6502685546875;
+	setAttr ".tgi[0].ni[67].y" -2942.76904296875;
 	setAttr ".tgi[0].ni[67].nvs" 1923;
-	setAttr ".tgi[0].ni[68].x" -411.54266357421875;
-	setAttr ".tgi[0].ni[68].y" -1489.5894775390625;
-	setAttr ".tgi[0].ni[68].nvs" 1923;
-	setAttr ".tgi[0].ni[69].x" -894.5811767578125;
-	setAttr ".tgi[0].ni[69].y" -765.77020263671875;
-	setAttr ".tgi[0].ni[69].nvs" 1923;
-	setAttr ".tgi[0].ni[70].x" -457.42721557617188;
-	setAttr ".tgi[0].ni[70].y" -1171.27587890625;
+	setAttr ".tgi[0].ni[68].x" -121.21964263916016;
+	setAttr ".tgi[0].ni[68].y" -4957.330078125;
+	setAttr ".tgi[0].ni[68].nvs" 1971;
+	setAttr ".tgi[0].ni[69].x" -161.55181884765625;
+	setAttr ".tgi[0].ni[69].y" -970.66461181640625;
+	setAttr ".tgi[0].ni[69].nvs" 1971;
+	setAttr ".tgi[0].ni[70].x" 835.62939453125;
+	setAttr ".tgi[0].ni[70].y" -4740.7373046875;
 	setAttr ".tgi[0].ni[70].nvs" 1923;
-	setAttr ".tgi[0].ni[71].x" -552.22174072265625;
-	setAttr ".tgi[0].ni[71].y" -2942.76904296875;
+	setAttr ".tgi[0].ni[71].x" 835.012451171875;
+	setAttr ".tgi[0].ni[71].y" -4925.83984375;
 	setAttr ".tgi[0].ni[71].nvs" 1923;
-	setAttr ".tgi[0].ni[72].x" -684.1317138671875;
-	setAttr ".tgi[0].ni[72].y" -1319.0015869140625;
+	setAttr ".tgi[0].ni[72].x" 1056.441162109375;
+	setAttr ".tgi[0].ni[72].y" -4925.83984375;
 	setAttr ".tgi[0].ni[72].nvs" 1923;
-	setAttr ".tgi[0].ni[73].x" 81.718490600585938;
-	setAttr ".tgi[0].ni[73].y" -3606.4892578125;
+	setAttr ".tgi[0].ni[73].x" -761.52178955078125;
+	setAttr ".tgi[0].ni[73].y" -454.8837890625;
 	setAttr ".tgi[0].ni[73].nvs" 1923;
-	setAttr ".tgi[0].ni[74].x" -781.7027587890625;
-	setAttr ".tgi[0].ni[74].y" -1660.3994140625;
+	setAttr ".tgi[0].ni[74].x" -795.36248779296875;
+	setAttr ".tgi[0].ni[74].y" -3210.100341796875;
 	setAttr ".tgi[0].ni[74].nvs" 1923;
-	setAttr ".tgi[0].ni[75].x" 1084.74853515625;
-	setAttr ".tgi[0].ni[75].y" -4261.53564453125;
+	setAttr ".tgi[0].ni[75].x" -865.271484375;
+	setAttr ".tgi[0].ni[75].y" -1468.48583984375;
 	setAttr ".tgi[0].ni[75].nvs" 1923;
-	setAttr ".tgi[0].ni[76].x" 863.320068359375;
-	setAttr ".tgi[0].ni[76].y" -4261.53564453125;
+	setAttr ".tgi[0].ni[76].x" -390.19793701171875;
+	setAttr ".tgi[0].ni[76].y" -3403.151123046875;
 	setAttr ".tgi[0].ni[76].nvs" 1923;
-	setAttr ".tgi[0].ni[77].x" -549.4923095703125;
-	setAttr ".tgi[0].ni[77].y" -4263.2080078125;
+	setAttr ".tgi[0].ni[77].x" -783.14935302734375;
+	setAttr ".tgi[0].ni[77].y" -1804.23583984375;
 	setAttr ".tgi[0].ni[77].nvs" 1923;
-	setAttr ".tgi[0].ni[78].x" -783.14935302734375;
-	setAttr ".tgi[0].ni[78].y" -1804.23583984375;
+	setAttr ".tgi[0].ni[78].x" -462.703125;
+	setAttr ".tgi[0].ni[78].y" -1319.0015869140625;
 	setAttr ".tgi[0].ni[78].nvs" 1923;
-	setAttr ".tgi[0].ni[79].x" -734.29693603515625;
-	setAttr ".tgi[0].ni[79].y" -3588.706787109375;
+	setAttr ".tgi[0].ni[79].x" -633.6424560546875;
+	setAttr ".tgi[0].ni[79].y" -2720.218994140625;
 	setAttr ".tgi[0].ni[79].nvs" 1923;
-	setAttr ".tgi[0].ni[80].x" -599.7171630859375;
-	setAttr ".tgi[0].ni[80].y" -4050.0908203125;
+	setAttr ".tgi[0].ni[80].x" -377.19674682617188;
+	setAttr ".tgi[0].ni[80].y" -4076.96630859375;
 	setAttr ".tgi[0].ni[80].nvs" 1923;
-	setAttr ".tgi[0].ni[81].x" -143.99580383300781;
-	setAttr ".tgi[0].ni[81].y" -3606.4892578125;
-	setAttr ".tgi[0].ni[81].nvs" 1971;
-	setAttr ".tgi[0].ni[82].x" -855.07098388671875;
-	setAttr ".tgi[0].ni[82].y" -2720.218994140625;
+	setAttr ".tgi[0].ni[81].x" 76.543418884277344;
+	setAttr ".tgi[0].ni[81].y" -2934.9501953125;
+	setAttr ".tgi[0].ni[81].nvs" 1923;
+	setAttr ".tgi[0].ni[82].x" -754.652099609375;
+	setAttr ".tgi[0].ni[82].y" -2279.190185546875;
 	setAttr ".tgi[0].ni[82].nvs" 1923;
-	setAttr ".tgi[0].ni[83].x" 67.019607543945312;
-	setAttr ".tgi[0].ni[83].y" -1625.426513671875;
+	setAttr ".tgi[0].ni[83].x" 1083.463134765625;
+	setAttr ".tgi[0].ni[83].y" -4573.240234375;
 	setAttr ".tgi[0].ni[83].nvs" 1923;
-	setAttr ".tgi[0].ni[84].x" 76.543418884277344;
+	setAttr ".tgi[0].ni[84].x" -149.17086791992188;
 	setAttr ".tgi[0].ni[84].y" -2934.9501953125;
-	setAttr ".tgi[0].ni[84].nvs" 1923;
-	setAttr ".tgi[0].ni[85].x" -462.703125;
-	setAttr ".tgi[0].ni[85].y" -1319.0015869140625;
+	setAttr ".tgi[0].ni[84].nvs" 1971;
+	setAttr ".tgi[0].ni[85].x" -478.71347045898438;
+	setAttr ".tgi[0].ni[85].y" -5661.80810546875;
 	setAttr ".tgi[0].ni[85].nvs" 1923;
-	setAttr ".tgi[0].ni[86].x" -673.152587890625;
-	setAttr ".tgi[0].ni[86].y" -765.77020263671875;
-	setAttr ".tgi[0].ni[86].nvs" 1923;
-	setAttr ".tgi[0].ni[87].x" -149.17086791992188;
-	setAttr ".tgi[0].ni[87].y" -2934.9501953125;
-	setAttr ".tgi[0].ni[87].nvs" 1971;
-	setAttr ".tgi[0].ni[88].x" 1083.463134765625;
-	setAttr ".tgi[0].ni[88].y" -4573.240234375;
+	setAttr ".tgi[0].ni[86].x" 1333.46533203125;
+	setAttr ".tgi[0].ni[86].y" -4299.58154296875;
+	setAttr ".tgi[0].ni[86].nvs" 1971;
+	setAttr ".tgi[0].ni[87].x" -781.7027587890625;
+	setAttr ".tgi[0].ni[87].y" -1660.3994140625;
+	setAttr ".tgi[0].ni[87].nvs" 1923;
+	setAttr ".tgi[0].ni[88].x" -776.36431884765625;
+	setAttr ".tgi[0].ni[88].y" -1944.0081787109375;
 	setAttr ".tgi[0].ni[88].nvs" 1923;
-	setAttr ".tgi[0].ni[89].x" -829.27239990234375;
-	setAttr ".tgi[0].ni[89].y" -4731.376953125;
+	setAttr ".tgi[0].ni[89].x" -700.14202880859375;
+	setAttr ".tgi[0].ni[89].y" -5661.80810546875;
 	setAttr ".tgi[0].ni[89].nvs" 1923;
-	setAttr ".tgi[0].ni[90].x" 835.012451171875;
-	setAttr ".tgi[0].ni[90].y" -4925.83984375;
+	setAttr ".tgi[0].ni[90].x" -560.27423095703125;
+	setAttr ".tgi[0].ni[90].y" -1660.3994140625;
 	setAttr ".tgi[0].ni[90].nvs" 1923;
-	setAttr ".tgi[0].ni[91].x" -512.86834716796875;
+	setAttr ".tgi[0].ni[91].x" -734.29693603515625;
 	setAttr ".tgi[0].ni[91].y" -2427.1044921875;
 	setAttr ".tgi[0].ni[91].nvs" 1923;
-	setAttr ".tgi[0].ni[92].x" -515.2222900390625;
-	setAttr ".tgi[0].ni[92].y" -294.4664306640625;
+	setAttr ".tgi[0].ni[92].x" -724.7978515625;
+	setAttr ".tgi[0].ni[92].y" -3742.049072265625;
 	setAttr ".tgi[0].ni[92].nvs" 1923;
-	setAttr ".tgi[0].ni[93].x" -643.84295654296875;
-	setAttr ".tgi[0].ni[93].y" -1468.48583984375;
-	setAttr ".tgi[0].ni[93].nvs" 1923;
-	setAttr ".tgi[0].ni[94].x" -136.64480590820312;
-	setAttr ".tgi[0].ni[94].y" -4271.75390625;
-	setAttr ".tgi[0].ni[94].nvs" 1971;
-createNode transformGeometry -n "transformGeometry4";
-	rename -uid "5FB3DBB5-4249-731A-8341-02AF8E8E07D7";
+	setAttr ".tgi[0].ni[93].x" -158.69467163085938;
+	setAttr ".tgi[0].ni[93].y" -1625.426513671875;
+	setAttr ".tgi[0].ni[93].nvs" 1971;
+	setAttr ".tgi[0].ni[94].x" -533.22357177734375;
+	setAttr ".tgi[0].ni[94].y" -2279.190185546875;
+	setAttr ".tgi[0].ni[94].nvs" 1923;
+	setAttr ".tgi[0].ni[95].x" -617.3582763671875;
+	setAttr ".tgi[0].ni[95].y" -3377.012939453125;
+	setAttr ".tgi[0].ni[95].nvs" 1923;
+	setAttr ".tgi[0].ni[96].x" -770.9208984375;
+	setAttr ".tgi[0].ni[96].y" -4263.2080078125;
+	setAttr ".tgi[0].ni[96].nvs" 1923;
+	setAttr ".tgi[0].ni[97].x" -607.84381103515625;
+	setAttr ".tgi[0].ni[97].y" -4731.376953125;
+	setAttr ".tgi[0].ni[97].nvs" 1923;
+	setAttr ".tgi[0].ni[98].x" 67.019607543945312;
+	setAttr ".tgi[0].ni[98].y" -1625.426513671875;
+	setAttr ".tgi[0].ni[98].nvs" 1923;
+	setAttr ".tgi[0].ni[99].x" -743.7960205078125;
+	setAttr ".tgi[0].ni[99].y" -2569.5908203125;
+	setAttr ".tgi[0].ni[99].nvs" 1923;
+	setAttr ".tgi[0].ni[100].x" -894.5811767578125;
+	setAttr ".tgi[0].ni[100].y" -765.77020263671875;
+	setAttr ".tgi[0].ni[100].nvs" 1923;
+	setAttr ".tgi[0].ni[101].x" 1329.02685546875;
+	setAttr ".tgi[0].ni[101].y" -4949.2138671875;
+	setAttr ".tgi[0].ni[101].nvs" 1923;
+	setAttr ".tgi[0].ni[102].x" 860.13916015625;
+	setAttr ".tgi[0].ni[102].y" -4426.02734375;
+	setAttr ".tgi[0].ni[102].nvs" 1923;
+	setAttr ".tgi[0].ni[103].x" -736.65087890625;
+	setAttr ".tgi[0].ni[103].y" -294.4664306640625;
+	setAttr ".tgi[0].ni[103].nvs" 1923;
+	setAttr ".tgi[0].ni[104].x" -855.07098388671875;
+	setAttr ".tgi[0].ni[104].y" -2720.218994140625;
+	setAttr ".tgi[0].ni[104].nvs" 1923;
+	setAttr ".tgi[0].ni[105].x" -599.7171630859375;
+	setAttr ".tgi[0].ni[105].y" -4050.0908203125;
+	setAttr ".tgi[0].ni[105].nvs" 1923;
+	setAttr ".tgi[0].ni[106].x" -515.2222900390625;
+	setAttr ".tgi[0].ni[106].y" -294.4664306640625;
+	setAttr ".tgi[0].ni[106].nvs" 1923;
+	setAttr ".tgi[0].ni[107].x" 863.320068359375;
+	setAttr ".tgi[0].ni[107].y" -4261.53564453125;
+	setAttr ".tgi[0].ni[107].nvs" 1923;
+	setAttr ".tgi[0].ni[108].x" 1084.74853515625;
+	setAttr ".tgi[0].ni[108].y" -4261.53564453125;
+	setAttr ".tgi[0].ni[108].nvs" 1923;
+	setAttr ".tgi[0].ni[109].x" -512.86834716796875;
+	setAttr ".tgi[0].ni[109].y" -3588.706787109375;
+	setAttr ".tgi[0].ni[109].nvs" 1923;
+	setAttr ".tgi[0].ni[110].x" -549.4923095703125;
+	setAttr ".tgi[0].ni[110].y" -4263.2080078125;
+	setAttr ".tgi[0].ni[110].nvs" 1923;
+	setAttr ".tgi[0].ni[111].x" 1085.153564453125;
+	setAttr ".tgi[0].ni[111].y" -4423.63671875;
+	setAttr ".tgi[0].ni[111].nvs" 1923;
+	setAttr ".tgi[0].ni[112].x" -517.856689453125;
+	setAttr ".tgi[0].ni[112].y" -4980.83544921875;
+	setAttr ".tgi[0].ni[112].nvs" 1923;
+	setAttr ".tgi[0].ni[113].x" -119.39875793457031;
+	setAttr ".tgi[0].ni[113].y" -5673.60009765625;
+	setAttr ".tgi[0].ni[113].nvs" 1923;
+	setAttr ".tgi[0].ni[114].x" -511.96078491210938;
+	setAttr ".tgi[0].ni[114].y" -5281.5244140625;
+	setAttr ".tgi[0].ni[114].nvs" 1923;
+	setAttr ".tgi[0].ni[115].x" -736.3372802734375;
+	setAttr ".tgi[0].ni[115].y" -5281.5244140625;
+	setAttr ".tgi[0].ni[115].nvs" 1923;
+	setAttr ".tgi[0].ni[116].x" -361.12945556640625;
+	setAttr ".tgi[0].ni[116].y" -5473.140625;
+	setAttr ".tgi[0].ni[116].nvs" 1923;
+	setAttr ".tgi[0].ni[117].x" -723.80047607421875;
+	setAttr ".tgi[0].ni[117].y" -6055.5439453125;
+	setAttr ".tgi[0].ni[117].nvs" 1923;
+	setAttr ".tgi[0].ni[118].x" -502.37191772460938;
+	setAttr ".tgi[0].ni[118].y" -6055.5439453125;
+	setAttr ".tgi[0].ni[118].nvs" 1923;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -85213,17 +85472,17 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 	setAttr ".rtfm" 1;
 select -ne :renderPartition;
-	setAttr -s 12 ".st";
+	setAttr -s 14 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 17 ".s";
+	setAttr -s 24 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 44 ".u";
+	setAttr -s 73 ".u";
 select -ne :defaultRenderingList1;
 select -ne :defaultTextureList1;
-	setAttr -s 34 ".tx";
+	setAttr -s 58 ".tx";
 select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
@@ -85258,8 +85517,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "pCube6_translateX.o" "|Chair|Seat.tx";
 connectAttr "pCube6_translateY.o" "|Chair|Seat.ty";
 connectAttr "pCube6_translateZ.o" "|Chair|Seat.tz";
@@ -85294,6 +85551,8 @@ relationship "link" ":lightLinker1" "openPBRSurface7SG.message" ":defaultLightSe
 relationship "link" ":lightLinker1" "openPBRSurface8SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "openPBRSurface9SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "openPBRSurface10SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "pasted__openPBRSurface10SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "pasted__openPBRSurface10SG1.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "openPBRSurface1SG.message" ":defaultLightSet.message";
@@ -85306,6 +85565,8 @@ relationship "shadowLink" ":lightLinker1" "openPBRSurface7SG.message" ":defaultL
 relationship "shadowLink" ":lightLinker1" "openPBRSurface8SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "openPBRSurface9SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "openPBRSurface10SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "pasted__openPBRSurface10SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "pasted__openPBRSurface10SG1.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":defaultArnoldDenoiser.msg" ":defaultArnoldRenderOptions.imagers" -na
@@ -86664,206 +86925,1247 @@ connectAttr "polyNormal2.out" "polyTweakUV152.ip";
 connectAttr "polyTweakUV151.out" "polyMapCut75.ip";
 connectAttr "polyMapCut75.out" "polyTweakUV153.ip";
 connectAttr "polyPlane5.out" "polyTweakUV154.ip";
+connectAttr "aiNormalMap10.out" "Chair_Table_Mat.n";
+connectAttr "Chair_Table_001_initialShadingGroup_BaseColor_1.oc" "Chair_Table_Mat.bc"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_Metallic_1.oa" "Chair_Table_Mat.m"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_Roughness_1.oa" "Chair_Table_Mat.sr"
+		;
 connectAttr "Chair_Table_Mat.oc" "openPBRSurface9SG.ss";
 connectAttr "Leg_Front_RShape.iog" "openPBRSurface9SG.dsm" -na;
 connectAttr "Leg_Front_LShape.iog" "openPBRSurface9SG.dsm" -na;
 connectAttr "|Chair_Table_1|Seat|SeatShape.iog" "openPBRSurface9SG.dsm" -na;
 connectAttr "BackShape.iog" "openPBRSurface9SG.dsm" -na;
+connectAttr "displacementShader3.d" "openPBRSurface9SG.vs";
 connectAttr "openPBRSurface9SG.msg" "materialInfo9.sg";
 connectAttr "Chair_Table_Mat.msg" "materialInfo9.m";
+connectAttr "Chair_Table_001_initialShadingGroup_BaseColor_1.msg" "materialInfo9.t"
+		 -na;
+connectAttr "Base_color.oc" "Windows_Mat.bc";
+connectAttr "Windows_008_openPBRSurface10SG_Metallic_1.oa" "Windows_Mat.m";
+connectAttr "Windows_008_openPBRSurface10SG_Roughness_1.oa" "Windows_Mat.sr";
+connectAttr "aiNormalMap9.out" "Windows_Mat.n";
 connectAttr "Windows_Mat.oc" "openPBRSurface10SG.ss";
 connectAttr "WindowsShape.iog" "openPBRSurface10SG.dsm" -na;
+connectAttr "displacementShader2.d" "openPBRSurface10SG.vs";
 connectAttr "openPBRSurface10SG.msg" "materialInfo10.sg";
 connectAttr "Windows_Mat.msg" "materialInfo10.m";
-connectAttr "place2dTexture31.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "Base_color.msg" "materialInfo10.t" -na;
+connectAttr ":defaultColorMgtGlobals.cme" "Base_color.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "Base_color.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "Base_color.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "Base_color.ws";
+connectAttr "place2dTexture34.c" "Base_color.c";
+connectAttr "place2dTexture34.tf" "Base_color.tf";
+connectAttr "place2dTexture34.rf" "Base_color.rf";
+connectAttr "place2dTexture34.mu" "Base_color.mu";
+connectAttr "place2dTexture34.mv" "Base_color.mv";
+connectAttr "place2dTexture34.s" "Base_color.s";
+connectAttr "place2dTexture34.wu" "Base_color.wu";
+connectAttr "place2dTexture34.wv" "Base_color.wv";
+connectAttr "place2dTexture34.re" "Base_color.re";
+connectAttr "place2dTexture34.of" "Base_color.of";
+connectAttr "place2dTexture34.r" "Base_color.ro";
+connectAttr "place2dTexture34.n" "Base_color.n";
+connectAttr "place2dTexture34.vt1" "Base_color.vt1";
+connectAttr "place2dTexture34.vt2" "Base_color.vt2";
+connectAttr "place2dTexture34.vt3" "Base_color.vt3";
+connectAttr "place2dTexture34.vc1" "Base_color.vc1";
+connectAttr "place2dTexture34.o" "Base_color.uv";
+connectAttr "place2dTexture34.ofs" "Base_color.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "Windows_008_openPBRSurface10SG_Metallic_1.cme"
 		;
-connectAttr "Teapot_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr ":defaultColorMgtGlobals.cfe" "Windows_008_openPBRSurface10SG_Metallic_1.cmcf"
 		;
-connectAttr "aiNormalMap6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr ":defaultColorMgtGlobals.cfp" "Windows_008_openPBRSurface10SG_Metallic_1.cmcp"
 		;
-connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr ":defaultColorMgtGlobals.wsn" "Windows_008_openPBRSurface10SG_Metallic_1.ws"
 		;
-connectAttr "Table_Dining_001_openPBRSurface5SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "place2dTexture35.c" "Windows_008_openPBRSurface10SG_Metallic_1.c";
+connectAttr "place2dTexture35.tf" "Windows_008_openPBRSurface10SG_Metallic_1.tf"
 		;
-connectAttr "Table_SIde_001_openPBRSurface3SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+connectAttr "place2dTexture35.rf" "Windows_008_openPBRSurface10SG_Metallic_1.rf"
 		;
-connectAttr "Cabinet_001_openPBRSurface6SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "place2dTexture35.mu" "Windows_008_openPBRSurface10SG_Metallic_1.mu"
 		;
-connectAttr "place2dTexture24.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+connectAttr "place2dTexture35.mv" "Windows_008_openPBRSurface10SG_Metallic_1.mv"
+		;
+connectAttr "place2dTexture35.s" "Windows_008_openPBRSurface10SG_Metallic_1.s";
+connectAttr "place2dTexture35.wu" "Windows_008_openPBRSurface10SG_Metallic_1.wu"
+		;
+connectAttr "place2dTexture35.wv" "Windows_008_openPBRSurface10SG_Metallic_1.wv"
+		;
+connectAttr "place2dTexture35.re" "Windows_008_openPBRSurface10SG_Metallic_1.re"
+		;
+connectAttr "place2dTexture35.of" "Windows_008_openPBRSurface10SG_Metallic_1.of"
+		;
+connectAttr "place2dTexture35.r" "Windows_008_openPBRSurface10SG_Metallic_1.ro";
+connectAttr "place2dTexture35.n" "Windows_008_openPBRSurface10SG_Metallic_1.n";
+connectAttr "place2dTexture35.vt1" "Windows_008_openPBRSurface10SG_Metallic_1.vt1"
+		;
+connectAttr "place2dTexture35.vt2" "Windows_008_openPBRSurface10SG_Metallic_1.vt2"
+		;
+connectAttr "place2dTexture35.vt3" "Windows_008_openPBRSurface10SG_Metallic_1.vt3"
+		;
+connectAttr "place2dTexture35.vc1" "Windows_008_openPBRSurface10SG_Metallic_1.vc1"
+		;
+connectAttr "place2dTexture35.o" "Windows_008_openPBRSurface10SG_Metallic_1.uv";
+connectAttr "place2dTexture35.ofs" "Windows_008_openPBRSurface10SG_Metallic_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Windows_008_openPBRSurface10SG_Roughness_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Windows_008_openPBRSurface10SG_Roughness_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Windows_008_openPBRSurface10SG_Roughness_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Windows_008_openPBRSurface10SG_Roughness_1.ws"
+		;
+connectAttr "place2dTexture36.c" "Windows_008_openPBRSurface10SG_Roughness_1.c";
+connectAttr "place2dTexture36.tf" "Windows_008_openPBRSurface10SG_Roughness_1.tf"
+		;
+connectAttr "place2dTexture36.rf" "Windows_008_openPBRSurface10SG_Roughness_1.rf"
+		;
+connectAttr "place2dTexture36.mu" "Windows_008_openPBRSurface10SG_Roughness_1.mu"
+		;
+connectAttr "place2dTexture36.mv" "Windows_008_openPBRSurface10SG_Roughness_1.mv"
+		;
+connectAttr "place2dTexture36.s" "Windows_008_openPBRSurface10SG_Roughness_1.s";
+connectAttr "place2dTexture36.wu" "Windows_008_openPBRSurface10SG_Roughness_1.wu"
+		;
+connectAttr "place2dTexture36.wv" "Windows_008_openPBRSurface10SG_Roughness_1.wv"
+		;
+connectAttr "place2dTexture36.re" "Windows_008_openPBRSurface10SG_Roughness_1.re"
+		;
+connectAttr "place2dTexture36.of" "Windows_008_openPBRSurface10SG_Roughness_1.of"
+		;
+connectAttr "place2dTexture36.r" "Windows_008_openPBRSurface10SG_Roughness_1.ro"
+		;
+connectAttr "place2dTexture36.n" "Windows_008_openPBRSurface10SG_Roughness_1.n";
+connectAttr "place2dTexture36.vt1" "Windows_008_openPBRSurface10SG_Roughness_1.vt1"
+		;
+connectAttr "place2dTexture36.vt2" "Windows_008_openPBRSurface10SG_Roughness_1.vt2"
+		;
+connectAttr "place2dTexture36.vt3" "Windows_008_openPBRSurface10SG_Roughness_1.vt3"
+		;
+connectAttr "place2dTexture36.vc1" "Windows_008_openPBRSurface10SG_Roughness_1.vc1"
+		;
+connectAttr "place2dTexture36.o" "Windows_008_openPBRSurface10SG_Roughness_1.uv"
+		;
+connectAttr "place2dTexture36.ofs" "Windows_008_openPBRSurface10SG_Roughness_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Windows_008_openPBRSurface10SG_Normal_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Windows_008_openPBRSurface10SG_Normal_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Windows_008_openPBRSurface10SG_Normal_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Windows_008_openPBRSurface10SG_Normal_1.ws"
+		;
+connectAttr "place2dTexture37.c" "Windows_008_openPBRSurface10SG_Normal_1.c";
+connectAttr "place2dTexture37.tf" "Windows_008_openPBRSurface10SG_Normal_1.tf";
+connectAttr "place2dTexture37.rf" "Windows_008_openPBRSurface10SG_Normal_1.rf";
+connectAttr "place2dTexture37.mu" "Windows_008_openPBRSurface10SG_Normal_1.mu";
+connectAttr "place2dTexture37.mv" "Windows_008_openPBRSurface10SG_Normal_1.mv";
+connectAttr "place2dTexture37.s" "Windows_008_openPBRSurface10SG_Normal_1.s";
+connectAttr "place2dTexture37.wu" "Windows_008_openPBRSurface10SG_Normal_1.wu";
+connectAttr "place2dTexture37.wv" "Windows_008_openPBRSurface10SG_Normal_1.wv";
+connectAttr "place2dTexture37.re" "Windows_008_openPBRSurface10SG_Normal_1.re";
+connectAttr "place2dTexture37.of" "Windows_008_openPBRSurface10SG_Normal_1.of";
+connectAttr "place2dTexture37.r" "Windows_008_openPBRSurface10SG_Normal_1.ro";
+connectAttr "place2dTexture37.n" "Windows_008_openPBRSurface10SG_Normal_1.n";
+connectAttr "place2dTexture37.vt1" "Windows_008_openPBRSurface10SG_Normal_1.vt1"
+		;
+connectAttr "place2dTexture37.vt2" "Windows_008_openPBRSurface10SG_Normal_1.vt2"
+		;
+connectAttr "place2dTexture37.vt3" "Windows_008_openPBRSurface10SG_Normal_1.vt3"
+		;
+connectAttr "place2dTexture37.vc1" "Windows_008_openPBRSurface10SG_Normal_1.vc1"
+		;
+connectAttr "place2dTexture37.o" "Windows_008_openPBRSurface10SG_Normal_1.uv";
+connectAttr "place2dTexture37.ofs" "Windows_008_openPBRSurface10SG_Normal_1.fs";
+connectAttr "Windows_008_openPBRSurface10SG_Normal_1.oc" "aiNormalMap9.input";
+connectAttr "Windows_008_openPBRSurface10SG_Height_1.oa" "displacementShader2.d"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Windows_008_openPBRSurface10SG_Height_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Windows_008_openPBRSurface10SG_Height_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Windows_008_openPBRSurface10SG_Height_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Windows_008_openPBRSurface10SG_Height_1.ws"
+		;
+connectAttr "place2dTexture38.c" "Windows_008_openPBRSurface10SG_Height_1.c";
+connectAttr "place2dTexture38.tf" "Windows_008_openPBRSurface10SG_Height_1.tf";
+connectAttr "place2dTexture38.rf" "Windows_008_openPBRSurface10SG_Height_1.rf";
+connectAttr "place2dTexture38.mu" "Windows_008_openPBRSurface10SG_Height_1.mu";
+connectAttr "place2dTexture38.mv" "Windows_008_openPBRSurface10SG_Height_1.mv";
+connectAttr "place2dTexture38.s" "Windows_008_openPBRSurface10SG_Height_1.s";
+connectAttr "place2dTexture38.wu" "Windows_008_openPBRSurface10SG_Height_1.wu";
+connectAttr "place2dTexture38.wv" "Windows_008_openPBRSurface10SG_Height_1.wv";
+connectAttr "place2dTexture38.re" "Windows_008_openPBRSurface10SG_Height_1.re";
+connectAttr "place2dTexture38.of" "Windows_008_openPBRSurface10SG_Height_1.of";
+connectAttr "place2dTexture38.r" "Windows_008_openPBRSurface10SG_Height_1.ro";
+connectAttr "place2dTexture38.n" "Windows_008_openPBRSurface10SG_Height_1.n";
+connectAttr "place2dTexture38.vt1" "Windows_008_openPBRSurface10SG_Height_1.vt1"
+		;
+connectAttr "place2dTexture38.vt2" "Windows_008_openPBRSurface10SG_Height_1.vt2"
+		;
+connectAttr "place2dTexture38.vt3" "Windows_008_openPBRSurface10SG_Height_1.vt3"
+		;
+connectAttr "place2dTexture38.vc1" "Windows_008_openPBRSurface10SG_Height_1.vc1"
+		;
+connectAttr "place2dTexture38.o" "Windows_008_openPBRSurface10SG_Height_1.uv";
+connectAttr "place2dTexture38.ofs" "Windows_008_openPBRSurface10SG_Height_1.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.ws"
+		;
+connectAttr "pasted__place2dTexture35.c" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.c"
+		;
+connectAttr "pasted__place2dTexture35.tf" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.tf"
+		;
+connectAttr "pasted__place2dTexture35.rf" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.rf"
+		;
+connectAttr "pasted__place2dTexture35.mu" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.mu"
+		;
+connectAttr "pasted__place2dTexture35.mv" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.mv"
+		;
+connectAttr "pasted__place2dTexture35.s" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.s"
+		;
+connectAttr "pasted__place2dTexture35.wu" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.wu"
+		;
+connectAttr "pasted__place2dTexture35.wv" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.wv"
+		;
+connectAttr "pasted__place2dTexture35.re" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.re"
+		;
+connectAttr "pasted__place2dTexture35.of" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.of"
+		;
+connectAttr "pasted__place2dTexture35.r" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.ro"
+		;
+connectAttr "pasted__place2dTexture35.n" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.n"
+		;
+connectAttr "pasted__place2dTexture35.vt1" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.vt1"
+		;
+connectAttr "pasted__place2dTexture35.vt2" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.vt2"
+		;
+connectAttr "pasted__place2dTexture35.vt3" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.vt3"
+		;
+connectAttr "pasted__place2dTexture35.vc1" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.vc1"
+		;
+connectAttr "pasted__place2dTexture35.o" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.uv"
+		;
+connectAttr "pasted__place2dTexture35.ofs" "pasted__Windows_008_openPBRSurface10SG_Metallic_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.ws"
+		;
+connectAttr "pasted__place2dTexture36.c" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.c"
+		;
+connectAttr "pasted__place2dTexture36.tf" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.tf"
+		;
+connectAttr "pasted__place2dTexture36.rf" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.rf"
+		;
+connectAttr "pasted__place2dTexture36.mu" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.mu"
+		;
+connectAttr "pasted__place2dTexture36.mv" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.mv"
+		;
+connectAttr "pasted__place2dTexture36.s" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.s"
+		;
+connectAttr "pasted__place2dTexture36.wu" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.wu"
+		;
+connectAttr "pasted__place2dTexture36.wv" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.wv"
+		;
+connectAttr "pasted__place2dTexture36.re" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.re"
+		;
+connectAttr "pasted__place2dTexture36.of" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.of"
+		;
+connectAttr "pasted__place2dTexture36.r" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.ro"
+		;
+connectAttr "pasted__place2dTexture36.n" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.n"
+		;
+connectAttr "pasted__place2dTexture36.vt1" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.vt1"
+		;
+connectAttr "pasted__place2dTexture36.vt2" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.vt2"
+		;
+connectAttr "pasted__place2dTexture36.vt3" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.vt3"
+		;
+connectAttr "pasted__place2dTexture36.vc1" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.vc1"
+		;
+connectAttr "pasted__place2dTexture36.o" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.uv"
+		;
+connectAttr "pasted__place2dTexture36.ofs" "pasted__Windows_008_openPBRSurface10SG_Roughness_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Base_color.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Base_color.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Base_color.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Base_color.ws";
+connectAttr "pasted__place2dTexture34.c" "pasted__Base_color.c";
+connectAttr "pasted__place2dTexture34.tf" "pasted__Base_color.tf";
+connectAttr "pasted__place2dTexture34.rf" "pasted__Base_color.rf";
+connectAttr "pasted__place2dTexture34.mu" "pasted__Base_color.mu";
+connectAttr "pasted__place2dTexture34.mv" "pasted__Base_color.mv";
+connectAttr "pasted__place2dTexture34.s" "pasted__Base_color.s";
+connectAttr "pasted__place2dTexture34.wu" "pasted__Base_color.wu";
+connectAttr "pasted__place2dTexture34.wv" "pasted__Base_color.wv";
+connectAttr "pasted__place2dTexture34.re" "pasted__Base_color.re";
+connectAttr "pasted__place2dTexture34.of" "pasted__Base_color.of";
+connectAttr "pasted__place2dTexture34.r" "pasted__Base_color.ro";
+connectAttr "pasted__place2dTexture34.n" "pasted__Base_color.n";
+connectAttr "pasted__place2dTexture34.vt1" "pasted__Base_color.vt1";
+connectAttr "pasted__place2dTexture34.vt2" "pasted__Base_color.vt2";
+connectAttr "pasted__place2dTexture34.vt3" "pasted__Base_color.vt3";
+connectAttr "pasted__place2dTexture34.vc1" "pasted__Base_color.vc1";
+connectAttr "pasted__place2dTexture34.o" "pasted__Base_color.uv";
+connectAttr "pasted__place2dTexture34.ofs" "pasted__Base_color.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Normal_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Normal_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Normal_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Normal_1.ws"
+		;
+connectAttr "pasted__place2dTexture37.c" "pasted__Windows_008_openPBRSurface10SG_Normal_1.c"
+		;
+connectAttr "pasted__place2dTexture37.tf" "pasted__Windows_008_openPBRSurface10SG_Normal_1.tf"
+		;
+connectAttr "pasted__place2dTexture37.rf" "pasted__Windows_008_openPBRSurface10SG_Normal_1.rf"
+		;
+connectAttr "pasted__place2dTexture37.mu" "pasted__Windows_008_openPBRSurface10SG_Normal_1.mu"
+		;
+connectAttr "pasted__place2dTexture37.mv" "pasted__Windows_008_openPBRSurface10SG_Normal_1.mv"
+		;
+connectAttr "pasted__place2dTexture37.s" "pasted__Windows_008_openPBRSurface10SG_Normal_1.s"
+		;
+connectAttr "pasted__place2dTexture37.wu" "pasted__Windows_008_openPBRSurface10SG_Normal_1.wu"
+		;
+connectAttr "pasted__place2dTexture37.wv" "pasted__Windows_008_openPBRSurface10SG_Normal_1.wv"
+		;
+connectAttr "pasted__place2dTexture37.re" "pasted__Windows_008_openPBRSurface10SG_Normal_1.re"
+		;
+connectAttr "pasted__place2dTexture37.of" "pasted__Windows_008_openPBRSurface10SG_Normal_1.of"
+		;
+connectAttr "pasted__place2dTexture37.r" "pasted__Windows_008_openPBRSurface10SG_Normal_1.ro"
+		;
+connectAttr "pasted__place2dTexture37.n" "pasted__Windows_008_openPBRSurface10SG_Normal_1.n"
+		;
+connectAttr "pasted__place2dTexture37.vt1" "pasted__Windows_008_openPBRSurface10SG_Normal_1.vt1"
+		;
+connectAttr "pasted__place2dTexture37.vt2" "pasted__Windows_008_openPBRSurface10SG_Normal_1.vt2"
+		;
+connectAttr "pasted__place2dTexture37.vt3" "pasted__Windows_008_openPBRSurface10SG_Normal_1.vt3"
+		;
+connectAttr "pasted__place2dTexture37.vc1" "pasted__Windows_008_openPBRSurface10SG_Normal_1.vc1"
+		;
+connectAttr "pasted__place2dTexture37.o" "pasted__Windows_008_openPBRSurface10SG_Normal_1.uv"
+		;
+connectAttr "pasted__place2dTexture37.ofs" "pasted__Windows_008_openPBRSurface10SG_Normal_1.fs"
+		;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Normal_1.oc" "pasted__aiNormalMap9.input"
+		;
+connectAttr "pasted__Base_color.oc" "pasted__Windows_Mat.bc";
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Metallic_1.oa" "pasted__Windows_Mat.m"
+		;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Roughness_1.oa" "pasted__Windows_Mat.sr"
+		;
+connectAttr "pasted__aiNormalMap9.out" "pasted__Windows_Mat.n";
+connectAttr "pasted__Windows_Mat.oc" "pasted__openPBRSurface10SG.ss";
+connectAttr "pasted__displacementShader2.d" "pasted__openPBRSurface10SG.vs";
+connectAttr "pasted__openPBRSurface10SG.msg" "pasted__materialInfo10.sg";
+connectAttr "pasted__Windows_Mat.msg" "pasted__materialInfo10.m";
+connectAttr "pasted__Base_color.msg" "pasted__materialInfo10.t" -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Height_1.oa" "pasted__displacementShader2.d"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Height_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Height_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Height_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Height_1.ws"
+		;
+connectAttr "pasted__place2dTexture38.c" "pasted__Windows_008_openPBRSurface10SG_Height_1.c"
+		;
+connectAttr "pasted__place2dTexture38.tf" "pasted__Windows_008_openPBRSurface10SG_Height_1.tf"
+		;
+connectAttr "pasted__place2dTexture38.rf" "pasted__Windows_008_openPBRSurface10SG_Height_1.rf"
+		;
+connectAttr "pasted__place2dTexture38.mu" "pasted__Windows_008_openPBRSurface10SG_Height_1.mu"
+		;
+connectAttr "pasted__place2dTexture38.mv" "pasted__Windows_008_openPBRSurface10SG_Height_1.mv"
+		;
+connectAttr "pasted__place2dTexture38.s" "pasted__Windows_008_openPBRSurface10SG_Height_1.s"
+		;
+connectAttr "pasted__place2dTexture38.wu" "pasted__Windows_008_openPBRSurface10SG_Height_1.wu"
+		;
+connectAttr "pasted__place2dTexture38.wv" "pasted__Windows_008_openPBRSurface10SG_Height_1.wv"
+		;
+connectAttr "pasted__place2dTexture38.re" "pasted__Windows_008_openPBRSurface10SG_Height_1.re"
+		;
+connectAttr "pasted__place2dTexture38.of" "pasted__Windows_008_openPBRSurface10SG_Height_1.of"
+		;
+connectAttr "pasted__place2dTexture38.r" "pasted__Windows_008_openPBRSurface10SG_Height_1.ro"
+		;
+connectAttr "pasted__place2dTexture38.n" "pasted__Windows_008_openPBRSurface10SG_Height_1.n"
+		;
+connectAttr "pasted__place2dTexture38.vt1" "pasted__Windows_008_openPBRSurface10SG_Height_1.vt1"
+		;
+connectAttr "pasted__place2dTexture38.vt2" "pasted__Windows_008_openPBRSurface10SG_Height_1.vt2"
+		;
+connectAttr "pasted__place2dTexture38.vt3" "pasted__Windows_008_openPBRSurface10SG_Height_1.vt3"
+		;
+connectAttr "pasted__place2dTexture38.vc1" "pasted__Windows_008_openPBRSurface10SG_Height_1.vc1"
+		;
+connectAttr "pasted__place2dTexture38.o" "pasted__Windows_008_openPBRSurface10SG_Height_1.uv"
+		;
+connectAttr "pasted__place2dTexture38.ofs" "pasted__Windows_008_openPBRSurface10SG_Height_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.ws"
+		;
+connectAttr "pasted__place2dTexture40.c" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.c"
+		;
+connectAttr "pasted__place2dTexture40.tf" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.tf"
+		;
+connectAttr "pasted__place2dTexture40.rf" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.rf"
+		;
+connectAttr "pasted__place2dTexture40.mu" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.mu"
+		;
+connectAttr "pasted__place2dTexture40.mv" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.mv"
+		;
+connectAttr "pasted__place2dTexture40.s" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.s"
+		;
+connectAttr "pasted__place2dTexture40.wu" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.wu"
+		;
+connectAttr "pasted__place2dTexture40.wv" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.wv"
+		;
+connectAttr "pasted__place2dTexture40.re" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.re"
+		;
+connectAttr "pasted__place2dTexture40.of" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.of"
+		;
+connectAttr "pasted__place2dTexture40.r" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.ro"
+		;
+connectAttr "pasted__place2dTexture40.n" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.n"
+		;
+connectAttr "pasted__place2dTexture40.vt1" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.vt1"
+		;
+connectAttr "pasted__place2dTexture40.vt2" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.vt2"
+		;
+connectAttr "pasted__place2dTexture40.vt3" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.vt3"
+		;
+connectAttr "pasted__place2dTexture40.vc1" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.vc1"
+		;
+connectAttr "pasted__place2dTexture40.o" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.uv"
+		;
+connectAttr "pasted__place2dTexture40.ofs" "pasted__Windows_008_openPBRSurface10SG_Metallic_2.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.ws"
+		;
+connectAttr "pasted__place2dTexture41.c" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.c"
+		;
+connectAttr "pasted__place2dTexture41.tf" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.tf"
+		;
+connectAttr "pasted__place2dTexture41.rf" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.rf"
+		;
+connectAttr "pasted__place2dTexture41.mu" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.mu"
+		;
+connectAttr "pasted__place2dTexture41.mv" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.mv"
+		;
+connectAttr "pasted__place2dTexture41.s" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.s"
+		;
+connectAttr "pasted__place2dTexture41.wu" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.wu"
+		;
+connectAttr "pasted__place2dTexture41.wv" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.wv"
+		;
+connectAttr "pasted__place2dTexture41.re" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.re"
+		;
+connectAttr "pasted__place2dTexture41.of" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.of"
+		;
+connectAttr "pasted__place2dTexture41.r" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.ro"
+		;
+connectAttr "pasted__place2dTexture41.n" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.n"
+		;
+connectAttr "pasted__place2dTexture41.vt1" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.vt1"
+		;
+connectAttr "pasted__place2dTexture41.vt2" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.vt2"
+		;
+connectAttr "pasted__place2dTexture41.vt3" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.vt3"
+		;
+connectAttr "pasted__place2dTexture41.vc1" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.vc1"
+		;
+connectAttr "pasted__place2dTexture41.o" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.uv"
+		;
+connectAttr "pasted__place2dTexture41.ofs" "pasted__Windows_008_openPBRSurface10SG_Roughness_2.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Base_color1.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Base_color1.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Base_color1.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Base_color1.ws";
+connectAttr "pasted__place2dTexture39.c" "pasted__Base_color1.c";
+connectAttr "pasted__place2dTexture39.tf" "pasted__Base_color1.tf";
+connectAttr "pasted__place2dTexture39.rf" "pasted__Base_color1.rf";
+connectAttr "pasted__place2dTexture39.mu" "pasted__Base_color1.mu";
+connectAttr "pasted__place2dTexture39.mv" "pasted__Base_color1.mv";
+connectAttr "pasted__place2dTexture39.s" "pasted__Base_color1.s";
+connectAttr "pasted__place2dTexture39.wu" "pasted__Base_color1.wu";
+connectAttr "pasted__place2dTexture39.wv" "pasted__Base_color1.wv";
+connectAttr "pasted__place2dTexture39.re" "pasted__Base_color1.re";
+connectAttr "pasted__place2dTexture39.of" "pasted__Base_color1.of";
+connectAttr "pasted__place2dTexture39.r" "pasted__Base_color1.ro";
+connectAttr "pasted__place2dTexture39.n" "pasted__Base_color1.n";
+connectAttr "pasted__place2dTexture39.vt1" "pasted__Base_color1.vt1";
+connectAttr "pasted__place2dTexture39.vt2" "pasted__Base_color1.vt2";
+connectAttr "pasted__place2dTexture39.vt3" "pasted__Base_color1.vt3";
+connectAttr "pasted__place2dTexture39.vc1" "pasted__Base_color1.vc1";
+connectAttr "pasted__place2dTexture39.o" "pasted__Base_color1.uv";
+connectAttr "pasted__place2dTexture39.ofs" "pasted__Base_color1.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Normal_2.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Normal_2.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Normal_2.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Normal_2.ws"
+		;
+connectAttr "pasted__place2dTexture42.c" "pasted__Windows_008_openPBRSurface10SG_Normal_2.c"
+		;
+connectAttr "pasted__place2dTexture42.tf" "pasted__Windows_008_openPBRSurface10SG_Normal_2.tf"
+		;
+connectAttr "pasted__place2dTexture42.rf" "pasted__Windows_008_openPBRSurface10SG_Normal_2.rf"
+		;
+connectAttr "pasted__place2dTexture42.mu" "pasted__Windows_008_openPBRSurface10SG_Normal_2.mu"
+		;
+connectAttr "pasted__place2dTexture42.mv" "pasted__Windows_008_openPBRSurface10SG_Normal_2.mv"
+		;
+connectAttr "pasted__place2dTexture42.s" "pasted__Windows_008_openPBRSurface10SG_Normal_2.s"
+		;
+connectAttr "pasted__place2dTexture42.wu" "pasted__Windows_008_openPBRSurface10SG_Normal_2.wu"
+		;
+connectAttr "pasted__place2dTexture42.wv" "pasted__Windows_008_openPBRSurface10SG_Normal_2.wv"
+		;
+connectAttr "pasted__place2dTexture42.re" "pasted__Windows_008_openPBRSurface10SG_Normal_2.re"
+		;
+connectAttr "pasted__place2dTexture42.of" "pasted__Windows_008_openPBRSurface10SG_Normal_2.of"
+		;
+connectAttr "pasted__place2dTexture42.r" "pasted__Windows_008_openPBRSurface10SG_Normal_2.ro"
+		;
+connectAttr "pasted__place2dTexture42.n" "pasted__Windows_008_openPBRSurface10SG_Normal_2.n"
+		;
+connectAttr "pasted__place2dTexture42.vt1" "pasted__Windows_008_openPBRSurface10SG_Normal_2.vt1"
+		;
+connectAttr "pasted__place2dTexture42.vt2" "pasted__Windows_008_openPBRSurface10SG_Normal_2.vt2"
+		;
+connectAttr "pasted__place2dTexture42.vt3" "pasted__Windows_008_openPBRSurface10SG_Normal_2.vt3"
+		;
+connectAttr "pasted__place2dTexture42.vc1" "pasted__Windows_008_openPBRSurface10SG_Normal_2.vc1"
+		;
+connectAttr "pasted__place2dTexture42.o" "pasted__Windows_008_openPBRSurface10SG_Normal_2.uv"
+		;
+connectAttr "pasted__place2dTexture42.ofs" "pasted__Windows_008_openPBRSurface10SG_Normal_2.fs"
+		;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Normal_2.oc" "pasted__aiNormalMap10.input"
+		;
+connectAttr "pasted__Base_color1.oc" "pasted__Windows_Mat1.bc";
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Metallic_2.oa" "pasted__Windows_Mat1.m"
+		;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Roughness_2.oa" "pasted__Windows_Mat1.sr"
+		;
+connectAttr "pasted__aiNormalMap10.out" "pasted__Windows_Mat1.n";
+connectAttr "pasted__Windows_Mat1.oc" "pasted__openPBRSurface10SG1.ss";
+connectAttr "pasted__displacementShader3.d" "pasted__openPBRSurface10SG1.vs";
+connectAttr "pasted__openPBRSurface10SG1.msg" "pasted__materialInfo11.sg";
+connectAttr "pasted__Windows_Mat1.msg" "pasted__materialInfo11.m";
+connectAttr "pasted__Base_color1.msg" "pasted__materialInfo11.t" -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Height_2.oa" "pasted__displacementShader3.d"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Height_2.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Height_2.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Height_2.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Height_2.ws"
+		;
+connectAttr "pasted__place2dTexture43.c" "pasted__Windows_008_openPBRSurface10SG_Height_2.c"
+		;
+connectAttr "pasted__place2dTexture43.tf" "pasted__Windows_008_openPBRSurface10SG_Height_2.tf"
+		;
+connectAttr "pasted__place2dTexture43.rf" "pasted__Windows_008_openPBRSurface10SG_Height_2.rf"
+		;
+connectAttr "pasted__place2dTexture43.mu" "pasted__Windows_008_openPBRSurface10SG_Height_2.mu"
+		;
+connectAttr "pasted__place2dTexture43.mv" "pasted__Windows_008_openPBRSurface10SG_Height_2.mv"
+		;
+connectAttr "pasted__place2dTexture43.s" "pasted__Windows_008_openPBRSurface10SG_Height_2.s"
+		;
+connectAttr "pasted__place2dTexture43.wu" "pasted__Windows_008_openPBRSurface10SG_Height_2.wu"
+		;
+connectAttr "pasted__place2dTexture43.wv" "pasted__Windows_008_openPBRSurface10SG_Height_2.wv"
+		;
+connectAttr "pasted__place2dTexture43.re" "pasted__Windows_008_openPBRSurface10SG_Height_2.re"
+		;
+connectAttr "pasted__place2dTexture43.of" "pasted__Windows_008_openPBRSurface10SG_Height_2.of"
+		;
+connectAttr "pasted__place2dTexture43.r" "pasted__Windows_008_openPBRSurface10SG_Height_2.ro"
+		;
+connectAttr "pasted__place2dTexture43.n" "pasted__Windows_008_openPBRSurface10SG_Height_2.n"
+		;
+connectAttr "pasted__place2dTexture43.vt1" "pasted__Windows_008_openPBRSurface10SG_Height_2.vt1"
+		;
+connectAttr "pasted__place2dTexture43.vt2" "pasted__Windows_008_openPBRSurface10SG_Height_2.vt2"
+		;
+connectAttr "pasted__place2dTexture43.vt3" "pasted__Windows_008_openPBRSurface10SG_Height_2.vt3"
+		;
+connectAttr "pasted__place2dTexture43.vc1" "pasted__Windows_008_openPBRSurface10SG_Height_2.vc1"
+		;
+connectAttr "pasted__place2dTexture43.o" "pasted__Windows_008_openPBRSurface10SG_Height_2.uv"
+		;
+connectAttr "pasted__place2dTexture43.ofs" "pasted__Windows_008_openPBRSurface10SG_Height_2.fs"
+		;
+connectAttr "pasted__Base_color2.oc" "pasted__Windows_Mat2.bc";
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Metallic_3.oa" "pasted__Windows_Mat2.m"
+		;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Roughness_3.oa" "pasted__Windows_Mat2.sr"
+		;
+connectAttr "pasted__aiNormalMap11.out" "pasted__Windows_Mat2.n";
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Base_color2.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Base_color2.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Base_color2.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Base_color2.ws";
+connectAttr "pasted__place2dTexture44.c" "pasted__Base_color2.c";
+connectAttr "pasted__place2dTexture44.tf" "pasted__Base_color2.tf";
+connectAttr "pasted__place2dTexture44.rf" "pasted__Base_color2.rf";
+connectAttr "pasted__place2dTexture44.mu" "pasted__Base_color2.mu";
+connectAttr "pasted__place2dTexture44.mv" "pasted__Base_color2.mv";
+connectAttr "pasted__place2dTexture44.s" "pasted__Base_color2.s";
+connectAttr "pasted__place2dTexture44.wu" "pasted__Base_color2.wu";
+connectAttr "pasted__place2dTexture44.wv" "pasted__Base_color2.wv";
+connectAttr "pasted__place2dTexture44.re" "pasted__Base_color2.re";
+connectAttr "pasted__place2dTexture44.of" "pasted__Base_color2.of";
+connectAttr "pasted__place2dTexture44.r" "pasted__Base_color2.ro";
+connectAttr "pasted__place2dTexture44.n" "pasted__Base_color2.n";
+connectAttr "pasted__place2dTexture44.vt1" "pasted__Base_color2.vt1";
+connectAttr "pasted__place2dTexture44.vt2" "pasted__Base_color2.vt2";
+connectAttr "pasted__place2dTexture44.vt3" "pasted__Base_color2.vt3";
+connectAttr "pasted__place2dTexture44.vc1" "pasted__Base_color2.vc1";
+connectAttr "pasted__place2dTexture44.o" "pasted__Base_color2.uv";
+connectAttr "pasted__place2dTexture44.ofs" "pasted__Base_color2.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.ws"
+		;
+connectAttr "pasted__place2dTexture45.c" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.c"
+		;
+connectAttr "pasted__place2dTexture45.tf" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.tf"
+		;
+connectAttr "pasted__place2dTexture45.rf" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.rf"
+		;
+connectAttr "pasted__place2dTexture45.mu" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.mu"
+		;
+connectAttr "pasted__place2dTexture45.mv" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.mv"
+		;
+connectAttr "pasted__place2dTexture45.s" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.s"
+		;
+connectAttr "pasted__place2dTexture45.wu" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.wu"
+		;
+connectAttr "pasted__place2dTexture45.wv" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.wv"
+		;
+connectAttr "pasted__place2dTexture45.re" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.re"
+		;
+connectAttr "pasted__place2dTexture45.of" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.of"
+		;
+connectAttr "pasted__place2dTexture45.r" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.ro"
+		;
+connectAttr "pasted__place2dTexture45.n" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.n"
+		;
+connectAttr "pasted__place2dTexture45.vt1" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.vt1"
+		;
+connectAttr "pasted__place2dTexture45.vt2" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.vt2"
+		;
+connectAttr "pasted__place2dTexture45.vt3" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.vt3"
+		;
+connectAttr "pasted__place2dTexture45.vc1" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.vc1"
+		;
+connectAttr "pasted__place2dTexture45.o" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.uv"
+		;
+connectAttr "pasted__place2dTexture45.ofs" "pasted__Windows_008_openPBRSurface10SG_Metallic_3.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.ws"
+		;
+connectAttr "pasted__place2dTexture46.c" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.c"
+		;
+connectAttr "pasted__place2dTexture46.tf" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.tf"
+		;
+connectAttr "pasted__place2dTexture46.rf" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.rf"
+		;
+connectAttr "pasted__place2dTexture46.mu" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.mu"
+		;
+connectAttr "pasted__place2dTexture46.mv" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.mv"
+		;
+connectAttr "pasted__place2dTexture46.s" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.s"
+		;
+connectAttr "pasted__place2dTexture46.wu" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.wu"
+		;
+connectAttr "pasted__place2dTexture46.wv" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.wv"
+		;
+connectAttr "pasted__place2dTexture46.re" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.re"
+		;
+connectAttr "pasted__place2dTexture46.of" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.of"
+		;
+connectAttr "pasted__place2dTexture46.r" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.ro"
+		;
+connectAttr "pasted__place2dTexture46.n" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.n"
+		;
+connectAttr "pasted__place2dTexture46.vt1" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.vt1"
+		;
+connectAttr "pasted__place2dTexture46.vt2" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.vt2"
+		;
+connectAttr "pasted__place2dTexture46.vt3" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.vt3"
+		;
+connectAttr "pasted__place2dTexture46.vc1" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.vc1"
+		;
+connectAttr "pasted__place2dTexture46.o" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.uv"
+		;
+connectAttr "pasted__place2dTexture46.ofs" "pasted__Windows_008_openPBRSurface10SG_Roughness_3.fs"
+		;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Normal_3.oc" "pasted__aiNormalMap11.input"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "pasted__Windows_008_openPBRSurface10SG_Normal_3.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "pasted__Windows_008_openPBRSurface10SG_Normal_3.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "pasted__Windows_008_openPBRSurface10SG_Normal_3.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "pasted__Windows_008_openPBRSurface10SG_Normal_3.ws"
+		;
+connectAttr "pasted__place2dTexture47.c" "pasted__Windows_008_openPBRSurface10SG_Normal_3.c"
+		;
+connectAttr "pasted__place2dTexture47.tf" "pasted__Windows_008_openPBRSurface10SG_Normal_3.tf"
+		;
+connectAttr "pasted__place2dTexture47.rf" "pasted__Windows_008_openPBRSurface10SG_Normal_3.rf"
+		;
+connectAttr "pasted__place2dTexture47.mu" "pasted__Windows_008_openPBRSurface10SG_Normal_3.mu"
+		;
+connectAttr "pasted__place2dTexture47.mv" "pasted__Windows_008_openPBRSurface10SG_Normal_3.mv"
+		;
+connectAttr "pasted__place2dTexture47.s" "pasted__Windows_008_openPBRSurface10SG_Normal_3.s"
+		;
+connectAttr "pasted__place2dTexture47.wu" "pasted__Windows_008_openPBRSurface10SG_Normal_3.wu"
+		;
+connectAttr "pasted__place2dTexture47.wv" "pasted__Windows_008_openPBRSurface10SG_Normal_3.wv"
+		;
+connectAttr "pasted__place2dTexture47.re" "pasted__Windows_008_openPBRSurface10SG_Normal_3.re"
+		;
+connectAttr "pasted__place2dTexture47.of" "pasted__Windows_008_openPBRSurface10SG_Normal_3.of"
+		;
+connectAttr "pasted__place2dTexture47.r" "pasted__Windows_008_openPBRSurface10SG_Normal_3.ro"
+		;
+connectAttr "pasted__place2dTexture47.n" "pasted__Windows_008_openPBRSurface10SG_Normal_3.n"
+		;
+connectAttr "pasted__place2dTexture47.vt1" "pasted__Windows_008_openPBRSurface10SG_Normal_3.vt1"
+		;
+connectAttr "pasted__place2dTexture47.vt2" "pasted__Windows_008_openPBRSurface10SG_Normal_3.vt2"
+		;
+connectAttr "pasted__place2dTexture47.vt3" "pasted__Windows_008_openPBRSurface10SG_Normal_3.vt3"
+		;
+connectAttr "pasted__place2dTexture47.vc1" "pasted__Windows_008_openPBRSurface10SG_Normal_3.vc1"
+		;
+connectAttr "pasted__place2dTexture47.o" "pasted__Windows_008_openPBRSurface10SG_Normal_3.uv"
+		;
+connectAttr "pasted__place2dTexture47.ofs" "pasted__Windows_008_openPBRSurface10SG_Normal_3.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Chair_Table_001_initialShadingGroup_BaseColor_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Chair_Table_001_initialShadingGroup_BaseColor_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Chair_Table_001_initialShadingGroup_BaseColor_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Chair_Table_001_initialShadingGroup_BaseColor_1.ws"
+		;
+connectAttr "place2dTexture39.c" "Chair_Table_001_initialShadingGroup_BaseColor_1.c"
+		;
+connectAttr "place2dTexture39.tf" "Chair_Table_001_initialShadingGroup_BaseColor_1.tf"
+		;
+connectAttr "place2dTexture39.rf" "Chair_Table_001_initialShadingGroup_BaseColor_1.rf"
+		;
+connectAttr "place2dTexture39.mu" "Chair_Table_001_initialShadingGroup_BaseColor_1.mu"
+		;
+connectAttr "place2dTexture39.mv" "Chair_Table_001_initialShadingGroup_BaseColor_1.mv"
+		;
+connectAttr "place2dTexture39.s" "Chair_Table_001_initialShadingGroup_BaseColor_1.s"
+		;
+connectAttr "place2dTexture39.wu" "Chair_Table_001_initialShadingGroup_BaseColor_1.wu"
+		;
+connectAttr "place2dTexture39.wv" "Chair_Table_001_initialShadingGroup_BaseColor_1.wv"
+		;
+connectAttr "place2dTexture39.re" "Chair_Table_001_initialShadingGroup_BaseColor_1.re"
+		;
+connectAttr "place2dTexture39.of" "Chair_Table_001_initialShadingGroup_BaseColor_1.of"
+		;
+connectAttr "place2dTexture39.r" "Chair_Table_001_initialShadingGroup_BaseColor_1.ro"
+		;
+connectAttr "place2dTexture39.n" "Chair_Table_001_initialShadingGroup_BaseColor_1.n"
+		;
+connectAttr "place2dTexture39.vt1" "Chair_Table_001_initialShadingGroup_BaseColor_1.vt1"
+		;
+connectAttr "place2dTexture39.vt2" "Chair_Table_001_initialShadingGroup_BaseColor_1.vt2"
+		;
+connectAttr "place2dTexture39.vt3" "Chair_Table_001_initialShadingGroup_BaseColor_1.vt3"
+		;
+connectAttr "place2dTexture39.vc1" "Chair_Table_001_initialShadingGroup_BaseColor_1.vc1"
+		;
+connectAttr "place2dTexture39.o" "Chair_Table_001_initialShadingGroup_BaseColor_1.uv"
+		;
+connectAttr "place2dTexture39.ofs" "Chair_Table_001_initialShadingGroup_BaseColor_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Chair_Table_001_initialShadingGroup_Metallic_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Chair_Table_001_initialShadingGroup_Metallic_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Chair_Table_001_initialShadingGroup_Metallic_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Chair_Table_001_initialShadingGroup_Metallic_1.ws"
+		;
+connectAttr "place2dTexture40.c" "Chair_Table_001_initialShadingGroup_Metallic_1.c"
+		;
+connectAttr "place2dTexture40.tf" "Chair_Table_001_initialShadingGroup_Metallic_1.tf"
+		;
+connectAttr "place2dTexture40.rf" "Chair_Table_001_initialShadingGroup_Metallic_1.rf"
+		;
+connectAttr "place2dTexture40.mu" "Chair_Table_001_initialShadingGroup_Metallic_1.mu"
+		;
+connectAttr "place2dTexture40.mv" "Chair_Table_001_initialShadingGroup_Metallic_1.mv"
+		;
+connectAttr "place2dTexture40.s" "Chair_Table_001_initialShadingGroup_Metallic_1.s"
+		;
+connectAttr "place2dTexture40.wu" "Chair_Table_001_initialShadingGroup_Metallic_1.wu"
+		;
+connectAttr "place2dTexture40.wv" "Chair_Table_001_initialShadingGroup_Metallic_1.wv"
+		;
+connectAttr "place2dTexture40.re" "Chair_Table_001_initialShadingGroup_Metallic_1.re"
+		;
+connectAttr "place2dTexture40.of" "Chair_Table_001_initialShadingGroup_Metallic_1.of"
+		;
+connectAttr "place2dTexture40.r" "Chair_Table_001_initialShadingGroup_Metallic_1.ro"
+		;
+connectAttr "place2dTexture40.n" "Chair_Table_001_initialShadingGroup_Metallic_1.n"
+		;
+connectAttr "place2dTexture40.vt1" "Chair_Table_001_initialShadingGroup_Metallic_1.vt1"
+		;
+connectAttr "place2dTexture40.vt2" "Chair_Table_001_initialShadingGroup_Metallic_1.vt2"
+		;
+connectAttr "place2dTexture40.vt3" "Chair_Table_001_initialShadingGroup_Metallic_1.vt3"
+		;
+connectAttr "place2dTexture40.vc1" "Chair_Table_001_initialShadingGroup_Metallic_1.vc1"
+		;
+connectAttr "place2dTexture40.o" "Chair_Table_001_initialShadingGroup_Metallic_1.uv"
+		;
+connectAttr "place2dTexture40.ofs" "Chair_Table_001_initialShadingGroup_Metallic_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Chair_Table_001_initialShadingGroup_Roughness_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Chair_Table_001_initialShadingGroup_Roughness_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Chair_Table_001_initialShadingGroup_Roughness_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Chair_Table_001_initialShadingGroup_Roughness_1.ws"
+		;
+connectAttr "place2dTexture41.c" "Chair_Table_001_initialShadingGroup_Roughness_1.c"
+		;
+connectAttr "place2dTexture41.tf" "Chair_Table_001_initialShadingGroup_Roughness_1.tf"
+		;
+connectAttr "place2dTexture41.rf" "Chair_Table_001_initialShadingGroup_Roughness_1.rf"
+		;
+connectAttr "place2dTexture41.mu" "Chair_Table_001_initialShadingGroup_Roughness_1.mu"
+		;
+connectAttr "place2dTexture41.mv" "Chair_Table_001_initialShadingGroup_Roughness_1.mv"
+		;
+connectAttr "place2dTexture41.s" "Chair_Table_001_initialShadingGroup_Roughness_1.s"
+		;
+connectAttr "place2dTexture41.wu" "Chair_Table_001_initialShadingGroup_Roughness_1.wu"
+		;
+connectAttr "place2dTexture41.wv" "Chair_Table_001_initialShadingGroup_Roughness_1.wv"
+		;
+connectAttr "place2dTexture41.re" "Chair_Table_001_initialShadingGroup_Roughness_1.re"
+		;
+connectAttr "place2dTexture41.of" "Chair_Table_001_initialShadingGroup_Roughness_1.of"
+		;
+connectAttr "place2dTexture41.r" "Chair_Table_001_initialShadingGroup_Roughness_1.ro"
+		;
+connectAttr "place2dTexture41.n" "Chair_Table_001_initialShadingGroup_Roughness_1.n"
+		;
+connectAttr "place2dTexture41.vt1" "Chair_Table_001_initialShadingGroup_Roughness_1.vt1"
+		;
+connectAttr "place2dTexture41.vt2" "Chair_Table_001_initialShadingGroup_Roughness_1.vt2"
+		;
+connectAttr "place2dTexture41.vt3" "Chair_Table_001_initialShadingGroup_Roughness_1.vt3"
+		;
+connectAttr "place2dTexture41.vc1" "Chair_Table_001_initialShadingGroup_Roughness_1.vc1"
+		;
+connectAttr "place2dTexture41.o" "Chair_Table_001_initialShadingGroup_Roughness_1.uv"
+		;
+connectAttr "place2dTexture41.ofs" "Chair_Table_001_initialShadingGroup_Roughness_1.fs"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Chair_Table_001_initialShadingGroup_Normal_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Chair_Table_001_initialShadingGroup_Normal_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Chair_Table_001_initialShadingGroup_Normal_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Chair_Table_001_initialShadingGroup_Normal_1.ws"
+		;
+connectAttr "place2dTexture42.c" "Chair_Table_001_initialShadingGroup_Normal_1.c"
+		;
+connectAttr "place2dTexture42.tf" "Chair_Table_001_initialShadingGroup_Normal_1.tf"
+		;
+connectAttr "place2dTexture42.rf" "Chair_Table_001_initialShadingGroup_Normal_1.rf"
+		;
+connectAttr "place2dTexture42.mu" "Chair_Table_001_initialShadingGroup_Normal_1.mu"
+		;
+connectAttr "place2dTexture42.mv" "Chair_Table_001_initialShadingGroup_Normal_1.mv"
+		;
+connectAttr "place2dTexture42.s" "Chair_Table_001_initialShadingGroup_Normal_1.s"
+		;
+connectAttr "place2dTexture42.wu" "Chair_Table_001_initialShadingGroup_Normal_1.wu"
+		;
+connectAttr "place2dTexture42.wv" "Chair_Table_001_initialShadingGroup_Normal_1.wv"
+		;
+connectAttr "place2dTexture42.re" "Chair_Table_001_initialShadingGroup_Normal_1.re"
+		;
+connectAttr "place2dTexture42.of" "Chair_Table_001_initialShadingGroup_Normal_1.of"
+		;
+connectAttr "place2dTexture42.r" "Chair_Table_001_initialShadingGroup_Normal_1.ro"
+		;
+connectAttr "place2dTexture42.n" "Chair_Table_001_initialShadingGroup_Normal_1.n"
+		;
+connectAttr "place2dTexture42.vt1" "Chair_Table_001_initialShadingGroup_Normal_1.vt1"
+		;
+connectAttr "place2dTexture42.vt2" "Chair_Table_001_initialShadingGroup_Normal_1.vt2"
+		;
+connectAttr "place2dTexture42.vt3" "Chair_Table_001_initialShadingGroup_Normal_1.vt3"
+		;
+connectAttr "place2dTexture42.vc1" "Chair_Table_001_initialShadingGroup_Normal_1.vc1"
+		;
+connectAttr "place2dTexture42.o" "Chair_Table_001_initialShadingGroup_Normal_1.uv"
+		;
+connectAttr "place2dTexture42.ofs" "Chair_Table_001_initialShadingGroup_Normal_1.fs"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_Normal_1.oc" "aiNormalMap10.input"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "Chair_Table_001_initialShadingGroup_Height_1.cme"
+		;
+connectAttr ":defaultColorMgtGlobals.cfe" "Chair_Table_001_initialShadingGroup_Height_1.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "Chair_Table_001_initialShadingGroup_Height_1.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "Chair_Table_001_initialShadingGroup_Height_1.ws"
+		;
+connectAttr "place2dTexture43.c" "Chair_Table_001_initialShadingGroup_Height_1.c"
+		;
+connectAttr "place2dTexture43.tf" "Chair_Table_001_initialShadingGroup_Height_1.tf"
+		;
+connectAttr "place2dTexture43.rf" "Chair_Table_001_initialShadingGroup_Height_1.rf"
+		;
+connectAttr "place2dTexture43.mu" "Chair_Table_001_initialShadingGroup_Height_1.mu"
+		;
+connectAttr "place2dTexture43.mv" "Chair_Table_001_initialShadingGroup_Height_1.mv"
+		;
+connectAttr "place2dTexture43.s" "Chair_Table_001_initialShadingGroup_Height_1.s"
+		;
+connectAttr "place2dTexture43.wu" "Chair_Table_001_initialShadingGroup_Height_1.wu"
+		;
+connectAttr "place2dTexture43.wv" "Chair_Table_001_initialShadingGroup_Height_1.wv"
+		;
+connectAttr "place2dTexture43.re" "Chair_Table_001_initialShadingGroup_Height_1.re"
+		;
+connectAttr "place2dTexture43.of" "Chair_Table_001_initialShadingGroup_Height_1.of"
+		;
+connectAttr "place2dTexture43.r" "Chair_Table_001_initialShadingGroup_Height_1.ro"
+		;
+connectAttr "place2dTexture43.n" "Chair_Table_001_initialShadingGroup_Height_1.n"
+		;
+connectAttr "place2dTexture43.vt1" "Chair_Table_001_initialShadingGroup_Height_1.vt1"
+		;
+connectAttr "place2dTexture43.vt2" "Chair_Table_001_initialShadingGroup_Height_1.vt2"
+		;
+connectAttr "place2dTexture43.vt3" "Chair_Table_001_initialShadingGroup_Height_1.vt3"
+		;
+connectAttr "place2dTexture43.vc1" "Chair_Table_001_initialShadingGroup_Height_1.vc1"
+		;
+connectAttr "place2dTexture43.o" "Chair_Table_001_initialShadingGroup_Height_1.uv"
+		;
+connectAttr "place2dTexture43.ofs" "Chair_Table_001_initialShadingGroup_Height_1.fs"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_Height_1.oa" "displacementShader3.d"
+		;
+connectAttr "place2dTexture37.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "Windows_008_openPBRSurface10SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "place2dTexture40.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "place2dTexture39.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
+connectAttr "place2dTexture34.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
+connectAttr "Base_color.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+		;
+connectAttr "Cupboard_001_openPBRSurface7SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
 connectAttr "Island_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
 		;
-connectAttr "place2dTexture23.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
+connectAttr "Table_Dining_001_openPBRSurface5SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
 		;
-connectAttr "Table_Side_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
+connectAttr "displacementShader2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
 		;
-connectAttr "Wallpaper_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
+connectAttr "Windows_008_openPBRSurface10SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
 		;
-connectAttr "place2dTexture14.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
+connectAttr "place2dTexture36.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
 		;
-connectAttr "aiNormalMap8.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
+connectAttr "aiNormalMap9.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
 		;
-connectAttr "Teapot_001_openPBRSurface4SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
+connectAttr "aiNormalMap7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
 		;
-connectAttr "Table_SIde_001_openPBRSurface3SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
+connectAttr "Teapot_001_openPBRSurface4SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
 		;
-connectAttr "Height_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[16].dn"
+connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[16].dn"
 		;
-connectAttr "place2dTexture26.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
+connectAttr "aiNormalMap1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
 		;
-connectAttr "Cupboard_001_openPBRSurface7SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[18].dn"
+connectAttr "openPBRSurface10SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[18].dn"
 		;
-connectAttr "place2dTexture11.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[19].dn"
+connectAttr "Cabinet_001_openPBRSurface6SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[19].dn"
 		;
-connectAttr "Cabinet_001_openPBRSurface6SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[20].dn"
+connectAttr "openPBRSurface1SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[20].dn"
 		;
-connectAttr "Chair_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[21].dn"
+connectAttr "openPBRSurface1SG_Normal_DirectX_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[21].dn"
 		;
-connectAttr "openPBRSurface10SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[22].dn"
+connectAttr "aiNormalMap2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[22].dn"
 		;
-connectAttr "openPBRSurface9SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[23].dn"
+connectAttr "openPBRSurface1SG_Base_color_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[23].dn"
 		;
-connectAttr "Chair_Table_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[24].dn"
+connectAttr "place2dTexture28.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[24].dn"
 		;
-connectAttr "Windows_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[25].dn"
+connectAttr "Cupboard_001_openPBRSurface7SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[25].dn"
 		;
-connectAttr "Cabinet_001_openPBRSurface6SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[26].dn"
+connectAttr "place2dTexture12.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[26].dn"
 		;
-connectAttr "place2dTexture5.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[27].dn"
+connectAttr "place2dTexture26.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[27].dn"
 		;
-connectAttr "displacementShader1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[28].dn"
+connectAttr "openPBRSurface4SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[28].dn"
 		;
-connectAttr "Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[29].dn"
+connectAttr "aiNormalMap4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[29].dn"
 		;
 connectAttr "Island_001_openPBRSurface2SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[30].dn"
 		;
-connectAttr "openPBRSurface7SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[31].dn"
+connectAttr "openPBRSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[31].dn"
 		;
-connectAttr "openPBRSurface8SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[32].dn"
+connectAttr "openPBRSurface9SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[32].dn"
 		;
-connectAttr "place2dTexture22.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[33].dn"
+connectAttr "Island_001_openPBRSurface2SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[33].dn"
 		;
-connectAttr "place2dTexture13.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[34].dn"
+connectAttr "Table_Dining_001_openPBRSurface5SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[34].dn"
 		;
-connectAttr "place2dTexture15.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[35].dn"
+connectAttr "Table_Dining_001_openPBRSurface5SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[35].dn"
 		;
-connectAttr "openPBRSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[36].dn"
+connectAttr "place2dTexture31.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[36].dn"
 		;
 connectAttr "place2dTexture6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[37].dn"
 		;
-connectAttr "Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[38].dn"
+connectAttr "openPBRSurface8SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[38].dn"
 		;
-connectAttr "place2dTexture30.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[39].dn"
+connectAttr "openPBRSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[39].dn"
 		;
-connectAttr "place2dTexture32.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[40].dn"
+connectAttr "openPBRSurface6SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[40].dn"
 		;
-connectAttr "place2dTexture18.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[41].dn"
+connectAttr "place2dTexture24.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[41].dn"
 		;
-connectAttr "openPBRSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[42].dn"
+connectAttr "Teapot_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[42].dn"
 		;
-connectAttr "Cupboard_001_openPBRSurface7SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[43].dn"
+connectAttr "Table_SIde_001_openPBRSurface3SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[43].dn"
 		;
-connectAttr "place2dTexture17.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[44].dn"
+connectAttr "place2dTexture5.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[44].dn"
 		;
-connectAttr "Table_SIde_001_openPBRSurface3SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[45].dn"
+connectAttr "Windows_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[45].dn"
 		;
-connectAttr "Cupboard_001_openPBRSurface7SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[46].dn"
+connectAttr "place2dTexture21.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[46].dn"
 		;
-connectAttr "place2dTexture8.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[47].dn"
+connectAttr "Island_001_openPBRSurface2SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[47].dn"
 		;
-connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[48].dn"
+connectAttr "aiNormalMap3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[48].dn"
 		;
-connectAttr "aiNormalMap3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[49].dn"
+connectAttr "place2dTexture23.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[49].dn"
 		;
-connectAttr "Teapot_001_openPBRSurface4SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[50].dn"
+connectAttr "Cabinet_001_openPBRSurface6SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[50].dn"
 		;
-connectAttr "place2dTexture27.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[51].dn"
+connectAttr "place2dTexture30.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[51].dn"
 		;
-connectAttr "Teapot_001_openPBRSurface4SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[52].dn"
+connectAttr "openPBRSurface7SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[52].dn"
 		;
-connectAttr "openPBRSurface1SG_Base_color_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[53].dn"
+connectAttr "Table_SIde_001_openPBRSurface3SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[53].dn"
 		;
-connectAttr "Table_SIde_001_openPBRSurface3SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[54].dn"
+connectAttr "Cupboard_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[54].dn"
 		;
-connectAttr "Table_Dining_001_openPBRSurface5SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[55].dn"
+connectAttr "place2dTexture18.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[55].dn"
 		;
-connectAttr "place2dTexture25.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[56].dn"
+connectAttr "place2dTexture7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[56].dn"
 		;
-connectAttr "aiNormalMap4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[57].dn"
+connectAttr "aiNormalMap8.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[57].dn"
 		;
-connectAttr "openPBRSurface4SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[58].dn"
+connectAttr "Cabinet_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[58].dn"
 		;
-connectAttr "place2dTexture12.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[59].dn"
+connectAttr "Windows_008_openPBRSurface10SG_Height_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[59].dn"
 		;
-connectAttr "Table_Dining_001_openPBRSurface5SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[60].dn"
+connectAttr "place2dTexture38.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[60].dn"
 		;
-connectAttr "aiNormalMap7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[61].dn"
+connectAttr "place2dTexture42.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[61].dn"
 		;
-connectAttr "aiNormalMap1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[62].dn"
+connectAttr "Chair_Table_001_initialShadingGroup_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[62].dn"
 		;
-connectAttr "place2dTexture20.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[63].dn"
+connectAttr "Table_SIde_001_openPBRSurface3SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[63].dn"
 		;
-connectAttr "Island_001_openPBRSurface2SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[64].dn"
+connectAttr "place2dTexture27.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[64].dn"
 		;
-connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[65].dn"
+connectAttr "Teapot_001_openPBRSurface4SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[65].dn"
 		;
-connectAttr "aiNormalMap5.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[66].dn"
+connectAttr "place2dTexture20.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[66].dn"
 		;
-connectAttr "place2dTexture19.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[67].dn"
+connectAttr "place2dTexture17.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[67].dn"
 		;
-connectAttr "aiNormalMap2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[68].dn"
+connectAttr "Chair_Table_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[68].dn"
 		;
-connectAttr "place2dTexture4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[69].dn"
+connectAttr "Chair_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[69].dn"
 		;
-connectAttr "openPBRSurface1SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[70].dn"
+connectAttr "Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[70].dn"
 		;
-connectAttr "Table_Dining_001_openPBRSurface5SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[71].dn"
+connectAttr "place2dTexture33.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[71].dn"
 		;
-connectAttr "place2dTexture7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[72].dn"
+connectAttr "Height_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[72].dn"
 		;
-connectAttr "openPBRSurface6SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[73].dn"
+connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[73].dn"
 		;
-connectAttr "place2dTexture9.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[74].dn"
+connectAttr "place2dTexture19.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[74].dn"
 		;
-connectAttr "Base_Color_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[75].dn"
+connectAttr "place2dTexture8.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[75].dn"
 		;
-connectAttr "place2dTexture29.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[76].dn"
+connectAttr "aiNormalMap5.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[76].dn"
 		;
-connectAttr "Cupboard_001_openPBRSurface7SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[77].dn"
+connectAttr "place2dTexture10.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[77].dn"
 		;
-connectAttr "place2dTexture10.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[78].dn"
+connectAttr "openPBRSurface1SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[78].dn"
 		;
-connectAttr "place2dTexture21.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[79].dn"
+connectAttr "Teapot_001_openPBRSurface4SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[79].dn"
 		;
-connectAttr "Cabinet_001_openPBRSurface6SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[80].dn"
+connectAttr "aiNormalMap6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[80].dn"
 		;
-connectAttr "Cabinet_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[81].dn"
+connectAttr "openPBRSurface5SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[81].dn"
 		;
-connectAttr "place2dTexture16.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[82].dn"
+connectAttr "place2dTexture13.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[82].dn"
 		;
-connectAttr "openPBRSurface3SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[83].dn"
+connectAttr "Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[83].dn"
 		;
-connectAttr "openPBRSurface5SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[84].dn"
+connectAttr "Table_Dining_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[84].dn"
 		;
-connectAttr "openPBRSurface1SG_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[85].dn"
+connectAttr "Chair_Table_001_initialShadingGroup_Height_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[85].dn"
 		;
-connectAttr "Island_001_openPBRSurface2SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[86].dn"
+connectAttr "Wallpaper_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[86].dn"
 		;
-connectAttr "Table_Dining_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[87].dn"
+connectAttr "place2dTexture9.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[87].dn"
 		;
-connectAttr "Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[88].dn"
+connectAttr "place2dTexture11.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[88].dn"
 		;
-connectAttr "place2dTexture28.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[89].dn"
+connectAttr "place2dTexture43.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[89].dn"
 		;
-connectAttr "place2dTexture33.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[90].dn"
+connectAttr "Table_SIde_001_openPBRSurface3SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[90].dn"
 		;
-connectAttr "Teapot_001_openPBRSurface4SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[91].dn"
+connectAttr "place2dTexture14.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[91].dn"
 		;
-connectAttr "Island_001_openPBRSurface2SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[92].dn"
+connectAttr "place2dTexture22.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[92].dn"
 		;
-connectAttr "openPBRSurface1SG_Normal_DirectX_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[93].dn"
+connectAttr "Table_Side_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[93].dn"
 		;
-connectAttr "Cupboard_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[94].dn"
+connectAttr "Teapot_001_openPBRSurface4SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[94].dn"
+		;
+connectAttr "Table_Dining_001_openPBRSurface5SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[95].dn"
+		;
+connectAttr "place2dTexture25.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[96].dn"
+		;
+connectAttr "Cupboard_001_openPBRSurface7SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[97].dn"
+		;
+connectAttr "openPBRSurface3SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[98].dn"
+		;
+connectAttr "place2dTexture15.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[99].dn"
+		;
+connectAttr "place2dTexture4.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[100].dn"
+		;
+connectAttr "displacementShader1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[101].dn"
+		;
+connectAttr "place2dTexture32.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[102].dn"
+		;
+connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[103].dn"
+		;
+connectAttr "place2dTexture16.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[104].dn"
+		;
+connectAttr "Cabinet_001_openPBRSurface6SG_Normal_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[105].dn"
+		;
+connectAttr "Island_001_openPBRSurface2SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[106].dn"
+		;
+connectAttr "place2dTexture29.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[107].dn"
+		;
+connectAttr "Base_Color_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[108].dn"
+		;
+connectAttr "Cabinet_001_openPBRSurface6SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[109].dn"
+		;
+connectAttr "Cupboard_001_openPBRSurface7SG_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[110].dn"
+		;
+connectAttr "Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[111].dn"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_BaseColor_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[112].dn"
+		;
+connectAttr "displacementShader3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[113].dn"
+		;
+connectAttr "Chair_Table_001_initialShadingGroup_Roughness_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[114].dn"
+		;
+connectAttr "place2dTexture41.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[115].dn"
+		;
+connectAttr "aiNormalMap10.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[116].dn"
+		;
+connectAttr "place2dTexture35.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[117].dn"
+		;
+connectAttr "Windows_008_openPBRSurface10SG_Metallic_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[118].dn"
 		;
 connectAttr "openPBRSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface2SG.pa" ":renderPartition.st" -na;
@@ -86875,6 +88177,8 @@ connectAttr "openPBRSurface7SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface8SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface9SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface10SG.pa" ":renderPartition.st" -na;
+connectAttr "pasted__openPBRSurface10SG.pa" ":renderPartition.st" -na;
+connectAttr "pasted__openPBRSurface10SG1.pa" ":renderPartition.st" -na;
 connectAttr "Island_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "Chair_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "Table_Side_Mat.msg" ":defaultShaderList1.s" -na;
@@ -86886,6 +88190,13 @@ connectAttr "Wallpaper_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "displacementShader1.msg" ":defaultShaderList1.s" -na;
 connectAttr "Chair_Table_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "Windows_Mat.msg" ":defaultShaderList1.s" -na;
+connectAttr "displacementShader2.msg" ":defaultShaderList1.s" -na;
+connectAttr "pasted__Windows_Mat.msg" ":defaultShaderList1.s" -na;
+connectAttr "pasted__displacementShader2.msg" ":defaultShaderList1.s" -na;
+connectAttr "pasted__Windows_Mat1.msg" ":defaultShaderList1.s" -na;
+connectAttr "pasted__displacementShader3.msg" ":defaultShaderList1.s" -na;
+connectAttr "pasted__Windows_Mat2.msg" ":defaultShaderList1.s" -na;
+connectAttr "displacementShader3.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture3.msg" ":defaultRenderUtilityList1.u" -na;
@@ -86930,6 +88241,35 @@ connectAttr "place2dTexture31.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture32.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture33.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "aiNormalMap8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture34.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture35.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture36.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture37.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "aiNormalMap9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture38.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture34.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture35.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture36.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture37.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__aiNormalMap9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture38.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture39.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture40.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture41.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture42.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__aiNormalMap10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture43.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture44.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture45.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture46.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__place2dTexture47.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__aiNormalMap11.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture39.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture40.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture41.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture42.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "aiNormalMap10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture43.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Island_001_openPBRSurface2SG_BaseColor_1.msg" ":defaultTextureList1.tx"
 		 -na;
@@ -86991,6 +88331,50 @@ connectAttr "Normal_1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Roughness_1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Metallic_1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Height_1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Base_color.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Windows_008_openPBRSurface10SG_Metallic_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Windows_008_openPBRSurface10SG_Roughness_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Windows_008_openPBRSurface10SG_Normal_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Windows_008_openPBRSurface10SG_Height_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Base_color.msg" ":defaultTextureList1.tx" -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Metallic_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Roughness_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Normal_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Height_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Base_color1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Metallic_2.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Roughness_2.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Normal_2.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Height_2.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Base_color2.msg" ":defaultTextureList1.tx" -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Metallic_3.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Roughness_3.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "pasted__Windows_008_openPBRSurface10SG_Normal_3.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Chair_Table_001_initialShadingGroup_BaseColor_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Chair_Table_001_initialShadingGroup_Metallic_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Chair_Table_001_initialShadingGroup_Roughness_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Chair_Table_001_initialShadingGroup_Normal_1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "Chair_Table_001_initialShadingGroup_Height_1.msg" ":defaultTextureList1.tx"
+		 -na;
 connectAttr "sixFootMan:sixFootManShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "FloorShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "CeilingShape.iog" ":initialShadingGroup.dsm" -na;
